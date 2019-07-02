@@ -9,6 +9,20 @@
     &#top {
 
         .p-meter {
+
+            &_list {
+
+                &_data {
+                    
+                    &_num {
+                        font-family: $font_DSEG7;
+                    }
+                    &_unit {
+                        font-family: $font_DSEG14;
+                    }
+                }
+
+            }
             
 
         }

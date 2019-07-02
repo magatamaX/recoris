@@ -6,5 +6,18 @@
     // Title
     // ----------------------------------------------------------
 
+    .a-ttl {
+        font-family: $font_josefin;
+        font-weight: 700;
+        @include fontSize(50px);
+        color: $color_main;
+
+        &--center {
+            @extend .a-ttl;
+
+            text-align: center;
+        }
+    }
+
 
 }//.fw

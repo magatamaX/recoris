@@ -9,7 +9,36 @@
     &#top {
 
         .p-kv {
+            @include pd(120px 0 50px);
             
+            &_ttlBox {
+                text-align: center;
+            }
+
+            &_lead {
+                @include fontSize(18px);
+                font-weight: bold;
+                @include mb(20px);
+            }
+
+            &_ttl {
+                img {
+                    @include width(240px);
+                    @include height(auto);
+                }
+            }
+
+            &_video {
+                max-width: 1100px;
+                @include mg(40px auto);
+                box-shadow: 5px 5px 3px rgba(#555555, .5);
+
+                video {
+                    display: block;
+                    @include width(100%);
+                    @include height(auto);
+                }
+            }
 
         }
 

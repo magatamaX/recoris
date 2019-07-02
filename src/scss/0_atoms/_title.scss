@@ -19,5 +19,17 @@
         }
     }
 
+    .a-subttl {
+        font-weight: bold;
+        @include fontSize(16px);
+        @include mt(10px);
+
+        &--center {
+            @extend .a-subttl;
+
+            text-align: center;
+        }
+    }
+
 
 }//.fw

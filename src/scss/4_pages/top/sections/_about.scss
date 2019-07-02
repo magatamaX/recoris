@@ -9,9 +9,40 @@
     &#top {
 
         .p-about {
-            
+            @include pd(80px 0);
+
+            &_logo {
+                @include width(210px);
+                @include height(auto);
+                display: inline-block;
+                vertical-align: bottom;
+                @include ml(10px);
+            }
+
+            &_emph {
+                @include fontSize(18px);
+                font-weight: bold;
+                @include mg(40px 0);
+                line-height: 2.111;
+            }
+
+            &_txt {
+                @include fontSize(16px);
+                line-height: 2.375;
+            }
+
             &_box {
-                font-size: 40px;
+                @include flexBase( $wrap: "wrap", $direction: "row", $justify: "flex-start", $align: "stretch" );
+
+                &_img {
+                    flex: 0 0 530px;
+                }
+
+                &_detail {
+                    flex: 1;
+                    @include pl(40px);
+                }
+
             }
 
         }

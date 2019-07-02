@@ -10,15 +10,43 @@
 
         .p-meter {
 
+            @include pd(60px 0 50px);
+            background: #000;
+            color: #fff;
+
+            &_ttl {
+                font-family: $font_josefin;
+                font-weight: bold;
+                @include fontSize(30px);
+                opacity: .8;
+                text-align: center;
+            }
+
             &_list {
+                @include width(510px);
+                @include mg(40px auto 0);
+                @include flexBase( $wrap: "wrap", $direction: "row", $justify: "flex-start", $align: "center" );
+
+                &_head {
+                    flex: 0 0 125px;
+                    @include fontSize(18px);
+                }
 
                 &_data {
                     
                     &_num {
                         font-family: $font_DSEG7;
+                        @include fontSize(50px);
                     }
                     &_unit {
                         font-family: $font_DSEG14;
+                        @include fontSize(30px);
+                        color: #a7b4c5;
+                        @include ml(5px);
+
+                        + .p-meter_list_data_num {
+                            @include ml(15px);
+                        }
                     }
                 }
 

@@ -9,7 +9,80 @@
     &#top {
 
         .p-caseStudy {
+            background-image: url("/assets/images/top/caseStudy/bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: left top;
+            @include pd(80px 0);
+            position: relative;
+            z-index: -2;
             
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $color_sub;
+                opacity: .1;
+                z-index: -1;
+            }
+
+            &_inner {
+                background-color: rgba(#fff, .8);
+                @include mt(30px);
+                @include pd(60px);
+                border-radius: 5px;
+                box-shadow: 4px 4px 4px rgba(#555555, .5);
+                position: relative;
+                z-index: 1;
+            }
+
+            &_ttl {
+                @include fontSize(18px);
+                @include mb(30px);
+            }
+
+            &_detail {
+                @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "flex-start", $align: "stretch" );
+                @include fontSize(15px);
+                line-height: 2.53;
+
+                + .p-caseStudy_detail {
+                    @include mt(10px);
+                }
+
+                &_head {
+                    @include width(110px);
+                    font-weight: bold;
+                }
+            }
+
+            &_list {
+                @include mt(40px);
+
+                &_item {
+                    dl {
+                        dt {
+                            text-align: center;
+                            font-weight: bold;
+                            @include fontSize(16px);
+                        }
+                        dd {
+                            @include fontSize(15px);
+                            line-height: 1.66;
+                            @include mt(20px);
+
+                            img {
+                                @include width(100%);
+                                @include height(auto);
+                            }
+                        }
+                    }
+                }
+            }
 
         }
 

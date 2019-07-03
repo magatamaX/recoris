@@ -9,7 +9,36 @@
     &#top {
 
         .p-scene {
-            @include pd(0 0 100px);
+            @include pd(0);
+
+            &_list {
+                @include flexBase( $wrap: "wrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+                @include mt(50px);
+
+                &_item {
+                    @include width(280px, 50%);
+                    @include mb(60px);
+
+                    figure {
+                        @include width(100%);
+                        @include height(200px, auto);
+                        position: relative;
+                        overflow: hidden;
+
+                        img {
+                            @include height(100%, auto);
+                            object-fit: cover;
+                        }
+                    }
+
+                    p {
+                        text-align: center;
+                        @include mt(10px);
+                        font-weight: bold;
+                    }
+
+                }
+            }
 
         }
 

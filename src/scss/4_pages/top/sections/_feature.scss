@@ -9,8 +9,173 @@
     &#top {
 
         .p-feature {
-            
+            @include mt(-210px);
+            @include pt(250px);
+            @include pb(110px);
+            background-color: #e5eaec;
 
+            &_innerSection {
+                + .p-feature_innerSection {
+                    @include mt(100px);
+                }
+            }
+
+            &_ttl {
+                @include fontSize(23px);
+                font-weight: bold;
+                letter-spacing: 0.1em;
+                color: $color_main;
+                @include mb(20px);
+            }
+
+            &_subttl {
+                @include fontSize(18px);
+                font-weight: bold;
+                letter-spacing: 0.1em;
+                @include mg(20px 0);
+            }
+
+            &_txt {
+                @include fontSize(16px);
+                line-height: 2.375;
+            }
+            
+            &_box {
+                @include flexBase( $wrap: "wrap", $direction: "row", $justify: "space-between", $align: "center" );
+
+                &--reverse {
+                    @extend .p-feature_box;
+
+                    @include flexBase( $wrap: "wrap", $direction: "row-reverse", $justify: "space-between", $align: "center" );
+                }
+
+                &_item {
+                    @include width(50%);
+
+                    &:nth-child(2) {
+                        
+                    }
+                }
+            }
+
+            &_ttlBox {
+                @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "flex-start", $align: "center" );
+
+                &::before {
+                    content: "";
+                    font-family: $font_voltaire;
+                    text-align: left;
+                    @include fontSize(280px);
+                    color: #fff;
+                    @include pr(20px);
+                }
+
+                &--1 {
+                    @extend .p-feature_ttlBox;
+
+                    &::before {
+                        content: "1";
+                    }
+                }
+                &--2 {
+                    @extend .p-feature_ttlBox;
+                    
+                    &::before {
+                        content: "2";
+                    }
+                }
+                &--3 {
+                    @extend .p-feature_ttlBox;
+                    
+                    &::before {
+                        content: "3";
+                    }
+                }
+            }
+
+            &_list {
+                @include flexBase( $wrap: "wrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+                @include pl(30px);
+
+                &_item {
+                    @include width(180px);
+                    @include height(175px);
+                    background-color: #fff;
+                    border: 1px solid $color_main;
+                    box-shadow: 2px 2px 4px rgba(#555555, .5);
+                    text-align: center;
+                    @include mb(15px);
+                    @include pd(15px 0);
+                    position: relative;
+
+                    &--row1 {
+                        @extend .p-feature_list_item;
+                        @include pd(30px 0);
+                    }
+
+                    p {
+                        @include fontSize(16px);
+                        font-weight: bold;
+                        line-height: 1.5625;
+                    }
+
+                    img {
+                        @include height(70px);
+                        @include width(auto);
+                        position: absolute;
+                        @include bottom(20px);
+                        left: 50%;
+                        transform: translateX(-50%);
+
+                    }
+                }
+            }
+
+            &_wipList {
+                @include width(1100px);
+                @include height(175px);
+                background-color: #fff;
+                box-shadow: 2px 2px 4px rgba(#555555, .5);
+                border: 1px solid $color_sub;
+
+                &_item {
+                    text-align: center;
+                    position: relative;
+                    @include pt(20px);
+
+                    &--row1 {
+                        @extend .p-feature_wipList_item;
+                        @include pd(30px 0);
+                    }
+                    
+                    p {
+                        @include fontSize(16px);
+                        line-height: 1.5625;
+                    }
+
+                    img {
+                        @include height(55px);
+                        @include width(auto);
+                        position: absolute;
+                        @include bottom(25px);
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            &_iconList {
+                @include mt(20px);
+
+                &_item {
+                    display: inline-block;
+                    vertical-align: bottom;
+
+                    + .p-feature_iconList_item {
+                        @include ml(20px);
+                    }
+                }
+            }
         }
 
     }

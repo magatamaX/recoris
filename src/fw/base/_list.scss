@@ -43,45 +43,45 @@ ul {
 	}
 }
 
-ol {
+// ol {
 
-	// Number
-	// -----------------------------------------------------
-	line-height: $line-height_base - 0.4;
-	list-style-type: decimal;
-	>li {
-		margin-left: 1.7em;
-		margin-bottom: 5px;
-		counter-increment: number;
-	}
+// 	// Number
+// 	// -----------------------------------------------------
+// 	line-height: $line-height_base - 0.4;
+// 	list-style-type: decimal;
+// 	>li {
+// 		margin-left: 1.7em;
+// 		margin-bottom: 5px;
+// 		counter-increment: number;
+// 	}
 
-	// (i)
-	// -----------------------------------------------------
-	&.f-list_bracket {
-		list-style-type: none;
-		counter-reset: number 0;
-		>li {
-			text-indent: -2.6em;
-			margin-left: 2.5em;
-			counter-increment: number 1;
-			&:before {
-				content: "（" counter(number) "）";
-			}
-		}
-	}
+// 	// (i)
+// 	// -----------------------------------------------------
+// 	&.f-list_bracket {
+// 		list-style-type: none;
+// 		counter-reset: number 0;
+// 		>li {
+// 			text-indent: -2.6em;
+// 			margin-left: 2.5em;
+// 			counter-increment: number 1;
+// 			&:before {
+// 				content: "（" counter(number) "）";
+// 			}
+// 		}
+// 	}
 
-	// (i)
-	// -----------------------------------------------------
-	&.f-list_notice {
-		list-style-type: none;
-		counter-reset: number 0;
-		>li {
-			text-indent: -2.3em;
-			margin-left: 2.5em;
-			counter-increment: number 1;
-			&:before {
-				content: "※" counter(number) " " ;
-			}
-		}
-	}
-}
+// 	// (i)
+// 	// -----------------------------------------------------
+// 	&.f-list_notice {
+// 		list-style-type: none;
+// 		counter-reset: number 0;
+// 		>li {
+// 			text-indent: -2.3em;
+// 			margin-left: 2.5em;
+// 			counter-increment: number 1;
+// 			&:before {
+// 				content: "※" counter(number) " " ;
+// 			}
+// 		}
+// 	}
+// }

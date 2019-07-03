@@ -9,8 +9,105 @@
     &#top {
 
         .p-plan {
-            
+            @include pd(80px 0 70px);
+            background-color: #e5eaec;
 
+            &_txt {
+                text-align: center;
+                @include mt(40px);
+                @include fontSize(18px);
+            }
+
+            &_table {
+                @include mg(30px 0 40px);
+
+                &_note {
+                    @include fontSize(14px);
+                    @include mt(10px);
+                }
+
+                table {
+                    width: 100%;
+                    table-layout: fixed;
+                    
+                    tbody {
+                        tr {
+                            th {
+                                font-weight: bold;
+                                border-right: 2px solid #e5eaec;
+                            }
+                            th,td {
+                                text-align: center;
+                                @include height(85px);
+                                @include fontSize(16px);
+                                line-height: 1.5625;
+
+                                strong {
+                                    color: $color_main;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+
+                    + table {
+                        @include mt(10px);
+                    }
+
+                    tbody {
+                        &.first {
+                            tr {
+                                background-color: #fff;
+                            }
+                        }
+                        &.second,
+                        &.third {
+                            tr:first-child {
+                                background-color: rgba($color_sub, .1);
+                            }
+                            tr:last-child {
+                                background-color: #fff;
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+            &_example {
+                background-color: #fff;
+                @include width(800px);
+                @include mg(40px auto 0);
+                @include pd(30px 100px 40px);
+                @include fontSize(16px);
+
+                span {
+                    color: $color_main;
+                }
+
+                &_ttl {
+                    text-align: center;
+                }
+
+                &_subttl {
+                    @include mt(20px);
+                }
+
+                &_list {
+                    @include mt(30px);
+
+                    &_item {
+                        + .p-plan_example_list_item {
+                            @include mt(10px);
+                        }
+
+                        &::before {
+                            content: "・";
+                        }
+                    }
+                }
+            }
         }
 
     }

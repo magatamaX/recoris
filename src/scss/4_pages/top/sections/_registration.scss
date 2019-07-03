@@ -9,8 +9,27 @@
     &#top {
 
         .p-registration {
+
+            background-color: $color_main;
+            @include pd(30px 0);
             
 
+            &_btn {
+                text-align: center;
+
+                a {
+                    display: inline-block;
+                    @include width(275px);
+                    @include pd(20px 0);
+                    line-height: 1;
+                    letter-spacing: 0.1em;
+                    @include fontSize(18px);
+                    color: #fff;
+                    border: 2px solid #fff;
+
+                    @include arrowAbs($color:#fff, $size:6, $width:2,$layout:right,$position:20,$direction:right)
+                }
+            }
         }
 
     }

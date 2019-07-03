@@ -4,13 +4,112 @@
 // ---------------------------------------------------------------------------
 //
 // /sample/index.html
-//
-// ---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
     &#top {
 
         .p-interview {
             @include pd(80px 0 50px);
 
+            &_txtBox {
+                @include mt(30px);
+            }
+
+            &_txt {
+                @include fontSize(16px);
+                line-height: 2.1875;
+                max-width: 481.38px;
+
+                &--large {
+                    @include fontSize(23px);
+                    @include mb(20px);
+                    letter-spacing: 0.1em;
+                }
+            }
+
+            &_btn {
+                @include mt(30px);
+
+                a {
+                    display: block;
+                    @include width(180px);
+                    @include fontSize(16px);
+                    color: $color_main;
+                    border: 1px solid $color_main;
+                    @include pd(20px 30px 20px 0);
+                    text-align: center;
+                    line-height: 1;
+                    letter-spacing: 0.1em;
+
+                    @include arrowAbs($color:$color_main, $size:6, $width:2,$layout:right,$position:30,$direction:right);
+                }
+            }
+
+            &_list {
+                @include width(900px);
+                @include ml(auto);
+                @include mt(-80px);
+
+                &_item {
+
+                    + .p-interview_list_item {
+
+                        .p-interview_interviewee {
+                            &::after {
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                @include bottom(20px);
+                                @include left(0);
+                                transform: translateX(-50%);
+                                background-image: url("/assets/images/top/interview/multiple.png");
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                background-position: top left;
+                                @include width(61px);
+                                @include height(95px);
+                                z-index: 1;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            &_interviewee {
+                position: relative;
+
+                img {
+                    display: block;
+                }
+
+                &_txt {
+                    position: absolute;
+                    @include pd(15px 30px);
+                    background-color: rgba($color_sub, .8);
+                    color: #fff;
+                    @include fontSize(16px);
+                    line-height: 1.5625;
+                    @include bottom(10px);
+                    white-space: nowrap;
+
+                    &--1 {
+                        @extend .p-interview_interviewee_txt;
+
+                        @include left(10px);
+                    }
+                    &--2 {
+                        @extend .p-interview_interviewee_txt;
+
+                        @include left(50%);
+                        transform: translateX(-50%);
+                    }
+                    &--3 {
+                        @extend .p-interview_interviewee_txt;
+
+                        @include right(10px);
+                    }
+                }
+            }
         }
 
     }

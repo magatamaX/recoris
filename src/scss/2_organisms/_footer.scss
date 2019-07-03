@@ -5,6 +5,36 @@
 	// ----------------------------------------------------------
 	// Footer
 	// ----------------------------------------------------------
+	.o-footer {
+		background-color: $color_sub;
+		color: #fff;
+		@include pd(20px 0);
+
+		position: relative;
+
+		&_list {
+			text-align: center;
+
+			&_item {
+				display: inline-block;
+				@include mg(0 1em);
+				
+				a {
+					color: #fff;
+					@include fontSize(14px);
+				}
+			}
+		}
+
+		&_copyright {
+			position: absolute;
+			@include top(50%);
+			@include right(30px);
+			color: #aaaaaa;
+			@include fontSize(12px);
+			transform: translateY(-50%);
+		}
+	}
 
 
 }//.fw

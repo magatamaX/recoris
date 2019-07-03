@@ -9,8 +9,74 @@
     &#top {
 
         .p-simulation {
-            
+            @include pd(70px 0 110px);
 
+            &_inputBox {
+                @include mt(40px);
+            }
+            &_list {
+                max-width: 635px;
+                @include ml(auto);
+                @include mr(auto);
+
+                &_item {
+                    @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "center" );
+                    + .p-simulation_list_item {
+                        @include mt(20px);
+                    }
+                }
+            }
+
+            &_label {
+
+            }
+
+            &_input {
+                @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "flex-start", $align: "flex-end" );
+                @include width(120px);
+                input {
+                    @include width(65px);
+                    @include height(65px);
+                    background-color: rgba($color_main, .1);
+                    text-align: center;
+                    @include fontSize(20px);
+                    border: 1px solid $color_main;
+                    @include mr(10px);
+                }
+            }
+
+            &_resultsList {
+                @include mg(60px auto 0);
+                @include width(720px);
+                @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "center" );
+
+                &_item {
+                    @include fontSize(16px);
+
+                    dl {
+                        dt, dd {
+                            text-align: center;
+                        }
+                    }
+
+                    &--withResult {
+                        @extend .p-simulation_resultsList_item;
+                        @include width(180px);
+                    }
+                }
+            }
+
+            &_resultBox {
+                @include height(65px);
+                @include width(100%);
+                background-color: rgba($color_main, .1);
+                text-align: center;
+                @include fontSize(16px);
+                border: 1px solid $color_main;
+                @include mg(15px 0);
+
+                @include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+            }
         }
 
     }

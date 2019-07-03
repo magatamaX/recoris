@@ -9,8 +9,98 @@
     &#top {
 
         .p-flow {
-            
+            background-color: #e5eaec;
+            @include pd(80px 0);
 
+            &_list {
+                @include mt(60px);
+                
+                &_item {
+                    + .p-flow_list_item {
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            @include width(2px);
+                            @include height(92%);
+                            @include bottom(0);
+                            @include left(0);
+                            transform: translateX(-50%);
+                            background-color: #dddddd;
+                            position: absolute;
+                        }
+
+                        .p-flow_step {
+                            .p-flow_step_head {
+                                position: relative;
+
+                                &::before {
+                                    content: "";
+                                    display: block;
+                                    position: absolute;
+                                    @include width(0);
+                                    @include height(0);
+                                    @include mt(-6px);
+                                    @include left(-3px);
+                                    @include top(50%);
+                                    border-top: 6px solid transparent!important;
+                                    border-bottom: 6px solid transparent!important;
+                                    border-left: 10px solid $color_sub;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_step {
+                &_head {
+                    text-align: center;
+                    @include fontSize(18px);
+                    font-weight: bold;                
+                }
+                &_data {
+                    @include pd(0 25px 25px);
+                }
+                &_icon {
+                    @include pd(20px 0);
+                    text-align: center;
+                    img {
+                        @include width(auto);
+                        @include height(45px);
+                        object-fit: cover;
+                    }
+                }
+                &_ttl {
+                    text-align: center;
+                    @include fontSize(18px);
+                    @include mb(20px);
+                    font-weight: bold;
+
+                    &--narrow {
+                        @extend .p-flow_step_ttl;
+                        letter-spacing: -0.08em;
+                    }
+                }
+                &_txt {
+                    @include fontSize(15px);
+                    line-height: 2;
+                }
+                &_btn {
+                    @include mt(20px);
+
+                    a {
+                        display: block;
+                        background-color: $color_sub;
+                        color: #fff;
+                        @include fontSize(14px);
+                        text-align: center;
+                        line-height: 1.428571428571429;
+                        @include pd(10px);
+                        border-radius: 5px;
+                    }
+                }
+            }
         }
 
     }

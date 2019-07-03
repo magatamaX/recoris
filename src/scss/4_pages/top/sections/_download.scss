@@ -9,8 +9,43 @@
     &#top {
 
         .p-download {
-            
+            @include pd(70px 0);
+            background-color: #e5eaec;
 
+            &_txt {
+                text-align: center;
+                @include fontSize(16px);
+                @include mt(40px);
+            }
+
+            &_links {
+                @include mt(40px);
+                @include width(400px);
+                @include ml(auto);
+                @include mr(auto);
+
+                &_stores {
+                    @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "center" );
+                }
+
+                &_contact {
+                    @include mt(40px);
+
+                    a {
+                        display: block;
+                        @include fontSize(18px);
+                        color: #fff;
+                        text-align: center;
+                        @include pd(20px 0);
+                        text-align: center;
+                        background-color: $color_sub;
+                        border-radius: 5px;
+                        box-shadow: 4px 4px 4px rgba(#555555,.5);
+
+                        @include arrowAbs($color:#fff, $size:6, $width:2,$layout:right,$position:20,$direction:right)
+                    }
+                }
+            }
         }
 
     }

@@ -32,7 +32,8 @@
                 @include fontSize(18px);
                 font-weight: bold;
                 letter-spacing: 0.1em;
-                @include mg(20px 0);
+                @include mg(30px auto 20px);
+                @include width(1100px);
             }
 
             &_txt {
@@ -134,6 +135,8 @@
             &_wipList {
                 @include width(1100px);
                 @include height(175px);
+                @include ml(auto);
+                @include mr(auto);
                 background-color: #fff;
                 box-shadow: 2px 2px 4px rgba(#555555, .5);
                 border: 1px solid $color_sub;

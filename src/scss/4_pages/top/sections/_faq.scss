@@ -9,8 +9,81 @@
     &#top {
 
         .p-faq {
-            
+            @include pd(70px 0);
 
+            &_list {
+                @include mt(30px);
+
+                &_item {
+
+                }
+            }
+
+            &_box {
+                border-bottom: 2px solid #dddddd;
+
+                &_q {
+                    @include pd(30px 30px 30px 60px);
+                    @include fontSize(16px);
+                    position: relative;
+
+                    a {
+                        color: $color_text;
+                        display: block;
+                        position: relative;
+
+                        &:before,
+                        &:after{
+                            content: "";
+                            display: block;
+                            background-color: $color_main;
+                            position: absolute;
+                            @include width(15px);
+                            @include height(2px);
+                            @include right(0);
+                            @include top(50%);
+                        }
+                        &:after{
+                            transform: rotate(270deg);
+                            transition: 0.4s;
+                            backface-visibility: hidden;
+                        }
+                        &.active{
+                            &:after{
+                                transform: rotate(0);
+                            }
+                        }
+                    }
+
+                    &::before {
+                        content: "Q";
+                        @include fontSize(25px);
+                        @include width(60px);
+                        text-align: center;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: $color_text;
+                    }
+                }
+                &_a {
+                    @include pd(0 30px 30px 60px);
+                    @include fontSize(14px);
+                    position: relative;
+
+                    &::before {
+                        content: "A";
+                        @include fontSize(20px);
+                        @include width(60px);
+                        text-align: center;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        color: $color_text;
+                    }
+                }
+            }
         }
 
     }

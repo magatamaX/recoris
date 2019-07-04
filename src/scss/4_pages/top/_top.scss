@@ -13,3 +13,63 @@
 @import "sections/simulation";
 @import "sections/registration";
 @import "sections/download";
+
+// dots
+.fw#top {
+    .f-section {
+        position: relative;
+    }
+
+    .p-dots {
+        
+
+        &--1 {
+            position: absolute;
+            @include top(0);
+            @include left(0);
+            z-index: -1;
+        }
+
+        &--2 {
+            position: absolute;
+            @include top(-150px);
+            @include right(-400px);
+            z-index: -1;
+        }
+
+        &--3 {
+            position: absolute;
+            @include bottom(50px);
+            @include right(0);
+            z-index: -1;
+        }
+
+        &--4 {
+            position: absolute;
+            @include top(400px);
+            @include left(-50px);
+            z-index: 0;
+        }
+
+        &--5 {
+            position: absolute;
+            @include top(1300px);
+            @include right(0px);
+            z-index: 0;
+        }
+
+        &--6 {
+            position: absolute;
+            @include top(140px);
+            @include right(-30px);
+            z-index: -1;
+        }
+
+        &--7 {
+            position: absolute;
+            @include bottom(-150px);
+            @include left(-300px);
+            z-index: -1;
+        }
+    }
+}

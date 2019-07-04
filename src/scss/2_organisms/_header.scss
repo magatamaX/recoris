@@ -6,6 +6,8 @@
 	// Header
 	// ----------------------------------------------------------
 	.o-header {
+		position: relative;
+		z-index: 1;
 
 		&_static {
 

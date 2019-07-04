@@ -9,6 +9,17 @@
 
         .p-interview {
             @include pd(80px 0 50px);
+            overflow: hidden;
+
+            &_bg {
+                @include width(100%);
+                @include height(450px);
+                position: absolute;
+                z-index: -1;
+                @include top(40px);
+                @include right(calc( 50% + 90px));
+                background-color: rgba($color_sub, .1);
+            }
 
             &_txtBox {
                 @include mt(30px);

@@ -1,6 +1,6 @@
 const Download = () => {
 
-    console.log("/top/sections/_download.js");
+    // console.log("/top/sections/_download.js");
 
 };
 

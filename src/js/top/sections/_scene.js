@@ -1,6 +1,6 @@
 const Scene = () => {
 
-    console.log("/top/sections/_scene.js");
+    // console.log("/top/sections/_scene.js");
 
 };
 

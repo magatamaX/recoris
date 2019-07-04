@@ -10,6 +10,7 @@
 
         .p-scene {
             @include pd(0);
+            z-index: 1;
 
             &_list {
                 @include flexBase( $wrap: "wrap", $direction: "row", $justify: "space-between", $align: "stretch" );
@@ -18,6 +19,11 @@
                 &_item {
                     @include width(280px, 50%);
                     @include mb(60px);
+
+                    &:nth-child(even) {
+                        position: relative;
+                        @include top(-70px);
+                    }
 
                     figure {
                         @include width(100%);

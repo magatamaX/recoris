@@ -28,9 +28,11 @@
     "webpack-dev-server": "^3.2.0"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.3.0",
     "mgn-accordion": "^0.0.2",
     "mgn-smooth-scroll": "^0.0.0",
     "mgn-ua": "^0.0.0",
-    "mgn-utility": "^0.0.0"
+    "mgn-utility": "^0.0.0",
+    "snapsvg": "^0.5.1"
   }
 }

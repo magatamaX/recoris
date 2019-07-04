@@ -1,6 +1,6 @@
 const Registration = () => {
 
-    console.log("/top/sections/_registration.js");
+    // console.log("/top/sections/_registration.js");
 
 };
 

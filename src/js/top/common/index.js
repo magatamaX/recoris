@@ -2,18 +2,15 @@ import { AddClass, RemoveClass, HasClass } from "mgn-utility";
 
 const Common = () => {
 
-    console.log("/top/common/index.js");
+    // console.log("/top/common/index.js");
+
     // Sticky Header
     window.addEventListener("DOMContentLoaded", () => {
 
         const HEADER = document.querySelector("#staticHeader > div");
         const CLONE_HEADER = HEADER.cloneNode(true);
 
-        console.log(CLONE_HEADER);
         document.querySelector("#stickyHeader").appendChild(CLONE_HEADER);
-
-
-        // const TARGET = Array.from ( document.querySelectorAll('.j-ani') );
     
         const callback = (entries) => {
             entries.forEach(entry => {

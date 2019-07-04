@@ -1,6 +1,6 @@
 const Interview = () => {
 
-    console.log("/top/sections/_interview.js");
+    // console.log("/top/sections/_interview.js");
 
 };
 

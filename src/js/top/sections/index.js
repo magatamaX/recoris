@@ -14,7 +14,7 @@ import Simulation from './_simulation';
 
 const Sections = () => {
 
-    console.log("/top/sections/index.js");
+    // console.log("/top/sections/index.js");
     
     About();
     CaseStudy();

@@ -1,6 +1,6 @@
 const About = () => {
 
-    console.log("/top/sections/_about.js");
+    // console.log("/top/sections/_about.js");
 
 };
 

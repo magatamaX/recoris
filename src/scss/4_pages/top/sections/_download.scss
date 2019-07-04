@@ -11,6 +11,20 @@
         .p-download {
             @include pd(70px 0);
             background-color: #e5eaec;
+            position: relative;
+
+            .f-inner {
+                position: relative;
+                z-index: 1;
+            }
+
+            &_bg {
+                position: absolute;
+                @include left(50%);
+                transform: translateX(-55%);
+                @include bottom(-60px);
+                z-index: 0;
+            }
 
             &_txt {
                 text-align: center;

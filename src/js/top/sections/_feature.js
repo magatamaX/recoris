@@ -1,6 +1,6 @@
 const Feature = () => {
 
-    console.log("/top/sections/_feature.js");
+    // console.log("/top/sections/_feature.js");
 
 };
 

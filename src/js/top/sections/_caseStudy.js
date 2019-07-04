@@ -1,6 +1,6 @@
 const CaseStudy = () => {
 
-    console.log("/top/sections/_caseStudy.js");
+    // console.log("/top/sections/_caseStudy.js");
 
 };
 

@@ -20,6 +20,11 @@
                 }
             }
 
+            .f-inner {
+                z-index: 1;
+                position: relative;
+            }
+
             &_ttl {
                 @include fontSize(23px);
                 font-weight: bold;

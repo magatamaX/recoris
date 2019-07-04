@@ -11,8 +11,39 @@
         .p-meter {
 
             @include pd(60px 0 50px);
-            background: #000;
             color: #fff;
+            position: relative;
+            overflow: hidden;
+
+            &_bgVideo {
+                position: absolute;
+                @include width(100%);
+                @include pt(56.25%);
+                @include top(50%);
+                @include left(0);
+                transform: translateY(-50%);
+                z-index: -1;
+
+                &::after {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: rgba(#000, .2);
+                    z-index: 0;
+                }
+
+                video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    @include width(100%);
+                    @include height(100%);
+                    display: block;
+                }
+            }
 
             &_ttl {
                 font-family: $font_josefin;

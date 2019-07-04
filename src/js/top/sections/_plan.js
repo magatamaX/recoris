@@ -1,6 +1,6 @@
 const Plan = () => {
 
-    console.log("/top/sections/_plan.js");
+    // console.log("/top/sections/_plan.js");
 
 };
 

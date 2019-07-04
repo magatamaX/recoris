@@ -6,5 +6,11 @@
     // Other
     // ----------------------------------------------------------
 
+    .a-dots {
+        @include width(721px);
+        @include height(252px);
+        opacity: .3;
+    }
+
 
 }//.fw

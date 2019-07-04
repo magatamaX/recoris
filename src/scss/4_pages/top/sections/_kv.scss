@@ -31,7 +31,7 @@
             &_video {
                 max-width: 1100px;
                 @include mg(40px auto);
-                box-shadow: 5px 5px 3px rgba(#555555, .5);
+                box-shadow: 3px 3px 6px rgba(#555555, .5);
 
                 video {
                     display: block;

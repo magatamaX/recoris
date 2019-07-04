@@ -5,6 +5,161 @@
 	// ----------------------------------------------------------
 	// Header
 	// ----------------------------------------------------------
+	.o-header {
+
+		&_static {
+
+			> div {
+				@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+				@include width(1100px);
+				@include pt(30px);
+				@include ml(auto);
+				@include mr(auto);
+
+				position: absolute;
+				@include top(0);
+				@include left(50%);
+				transform: translateX(-50%);
+
+				.bar {
+					display: none;
+					h1 {
+						display: none;
+					}
+
+					a.toggle {
+						display: none;
+					}
+				}
+				nav {
+					ul {
+						@include width(700px);
+						@include height(50px);
+						border: 2px solid $color_main;
+						@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+						@include pd(0 40px);
+						border-radius: 5px;
+						box-shadow: 4px 4px 4px rgba(#555, .5);
+						background-color: rgba(#fff, .8);
+						li {
+							line-height: 1;
+							@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+							a {
+								@include fontSize(14px);
+								color: $color_text;
+								
+							}
+						}
+					}
+				}
+				a.login {
+					background-color: $color_main;
+					color: #fff;
+					text-align: center;
+					@include fontSize(16px);
+					@include width(220px);
+					@include height(50px);
+					display: block;
+					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+					border-radius: 5px;
+					box-shadow: 4px 4px 4px rgba(#555, .5);
+				}
+				a.contact {
+					background-color: $color_sub;
+					color: #fff;
+					text-align: center;
+					@include fontSize(16px);
+					@include width(150px);
+					@include height(50px);
+					display: block;
+					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+					border-radius: 5px;
+					box-shadow: 4px 4px 4px rgba(#555, .5);
+				}
+			}
+
+		}
+
+		&_sticky {
+			> div {
+				position: fixed;
+				@include top(-65px);
+				left: 0;
+				@include width(100%);
+				@include height(65px);
+				background-color: #fff;
+				transition: top .3s ease-out;
+				z-index: 10;
+				box-shadow: 2px 0px 4px rgba(#555, .2);
+
+				&.on {
+					@include top(0);
+				}
+
+				.bar {
+					h1 {
+						img {
+							@include width(160px);
+							@include height(auto);
+							display: block;
+							position: absolute;
+							@include top(50%);
+							@include left(30px);
+							transform: translateY(-50%);
+						}
+					}
+					a.toggle {
+						display: none;
+					}
+				}
+				nav {
+					ul {
+						position: absolute;
+						@include left(42%);
+						@include top(50%);
+						transform: translate(-50%, -50%);
+						@include width(600px);
+						@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+
+						li {
+							line-height: 1;
+							a {
+								@include fontSize(13px);
+								color: $color_text;
+							}
+						}
+					}
+				}
+				a.login {
+					background-color: $color_main;
+					color: #fff;
+					text-align: center;
+					@include fontSize(16px);
+					@include width(235px);
+					@include height(100%);
+					display: block;
+					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+					position: absolute;
+					@include top(0);
+					@include right(170px);
+				}
+				a.contact {
+					background-color: $color_sub;
+					color: #fff;
+					text-align: center;
+					@include fontSize(16px);
+					@include width(170px);
+					@include height(100%);
+					display: block;
+					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+					position: absolute;
+					@include top(0);
+					@include right(0);
+				}
+			}
+
+		}
+	}
 
 
 }//.fw

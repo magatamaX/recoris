@@ -57,9 +57,57 @@
 
                 &_item {
                     @include width(50%);
+                    position: relative;
 
-                    &:nth-child(2) {
-                        
+                    .__speaker {
+                        position: absolute;
+                        @include bottom(-10px);
+                        @include right(350px);
+                    }
+
+                    .glide__slide1__slide {
+                        @include pd(0 50px);
+                        position: relative;
+
+                        .glide__glide__slide1 {
+                            box-shadow: 2px 2px 4px rgba(#555555, .5);
+                        }
+
+                        .__back {
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            transform: translateY(-50%);
+                        }
+                        .__next {
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            transform: translateY(-50%);
+                        }
+                    }
+                    .glide__slide2__slide {
+                        @include pd(0 50px);
+                        @include width(300px);
+                        @include ml(auto);
+                        position: relative;
+
+                        .glide__glide__slide2 {
+                            box-shadow: 2px 2px 4px rgba(#555555, .5);
+                        }
+
+                        .__back {
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            transform: translateY(-50%);
+                        }
+                        .__next {
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            transform: translateY(-50%);
+                        }
                     }
                 }
             }
@@ -85,6 +133,7 @@
                 }
                 &--2 {
                     @extend .p-feature_ttlBox;
+                    @include pl(20px,0);
                     
                     &::before {
                         content: "2";

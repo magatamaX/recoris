@@ -22,6 +22,28 @@
 				a {
 					color: #fff;
 					@include fontSize(14px);
+					position: relative;
+					display: inline-block;
+				
+					&::before {
+						content: '';
+						display: block;
+						@include width(100%);
+						@include height(20px);
+						position: absolute;
+						@include bottom(-2px);
+						@include left(0);
+						background-image: linear-gradient(#fff, #fff);
+						background-repeat: no-repeat;
+						background-position: center bottom;
+						background-size: 0% 2px;
+						transition: background-size .3s ease-out;
+					}
+					&:hover {
+						&::before {
+							background-size: 100% 2px;
+						}
+					}
 				}
 			}
 		}

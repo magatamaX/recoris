@@ -10,7 +10,7 @@
 
         .p-meter {
 
-            @include pd(60px 0 50px);
+            @include pd(60px 0 50px, 30px 0);
             color: #fff;
             position: relative;
             overflow: hidden;
@@ -18,10 +18,13 @@
             &_bgVideo {
                 position: absolute;
                 @include width(100%);
-                @include pt(56.25%);
-                @include top(50%);
+                @include pt(56.25%,100%);
+                @include top(50%,0);
                 @include left(0);
                 transform: translateY(-50%);
+                @include max(s) {
+                    transform: none;
+                }
                 z-index: -1;
 
                 &::after {
@@ -42,6 +45,10 @@
                     @include width(100%);
                     @include height(100%);
                     display: block;
+
+                    @include max(s) {
+                        object-fit: cover;
+                    }
                 }
             }
 

@@ -27,7 +27,18 @@
                     color: #fff;
                     border: 2px solid #fff;
 
-                    @include arrowAbs($color:#fff, $size:6, $width:2,$layout:right,$position:20,$direction:right)
+                    @include arrowAbs($color:#fff, $size:6, $width:2,$layout:right,$position:20,$direction:right);
+
+                    transition: background-color .3s ease-out,
+                                color .3s ease-out;
+
+                    &:hover {
+                        background-color: #fff;
+                        color: $color_main;
+                        &::before {
+                            border-color: $color_main;
+                        }
+                    }
                 }
             }
         }

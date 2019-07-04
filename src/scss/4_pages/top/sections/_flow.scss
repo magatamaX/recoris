@@ -98,6 +98,13 @@
                         line-height: 1.428571428571429;
                         @include pd(10px);
                         border-radius: 5px;
+                        transition: background-color .3s ease-out,
+                        color .3s ease-out;
+
+                        &:hover {
+                            background-color: #fff;
+                            color: $color_sub;
+                        }
                     }
                 }
             }

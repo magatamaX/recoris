@@ -52,6 +52,17 @@
                     letter-spacing: 0.1em;
 
                     @include arrowAbs($color:$color_main, $size:6, $width:2,$layout:right,$position:30,$direction:right);
+
+                    transition: background-color .3s ease-out,
+                                color .3s ease-out;
+
+                    &:hover {
+                        background-color: $color_main;
+                        color: #fff;
+                        &::before {
+                            border-color: #fff;
+                        }
+                    }
                 }
             }
 

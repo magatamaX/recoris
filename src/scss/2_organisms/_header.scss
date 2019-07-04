@@ -7,7 +7,7 @@
 	// ----------------------------------------------------------
 	.o-header {
 		position: relative;
-		z-index: 1;
+		z-index: 100;
 
 		&_static {
 
@@ -49,7 +49,28 @@
 							a {
 								@include fontSize(14px);
 								color: $color_text;
-								
+								position: relative;
+								display: inline-block;
+							
+								&::before {
+									content: '';
+									display: block;
+									@include width(100%);
+									@include height(20px);
+									position: absolute;
+									@include bottom(-5px);
+									@include left(0);
+									background-image: linear-gradient($color_main, $color_main);
+									background-repeat: no-repeat;
+									background-position: center bottom;
+									background-size: 0% 2px;
+									transition: background-size .3s ease-out;
+								}
+								&:hover {
+									&::before {
+										background-size: 100% 2px;
+									}
+								}
 							}
 						}
 					}
@@ -65,6 +86,11 @@
 					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
 					border-radius: 5px;
 					box-shadow: 4px 4px 4px rgba(#555, .5);
+					transition: opacity .3s ease-out;
+
+					&:hover {
+						opacity: .8;
+					}
 				}
 				a.contact {
 					background-color: $color_sub;
@@ -77,18 +103,26 @@
 					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
 					border-radius: 5px;
 					box-shadow: 4px 4px 4px rgba(#555, .5);
+					transition: opacity .3s ease-out;
+
+					&:hover {
+						opacity: .8;
+					}
 				}
 			}
 
+			@include max(s) {
+				display: none;
+			}
 		}
 
 		&_sticky {
 			> div {
 				position: fixed;
-				@include top(-65px);
+				@include top(-65px,0);
 				left: 0;
 				@include width(100%);
-				@include height(65px);
+				@include height(65px,45px);
 				background-color: #fff;
 				transition: top .3s ease-out;
 				z-index: 10;
@@ -101,33 +135,111 @@
 				.bar {
 					h1 {
 						img {
-							@include width(160px);
+							@include width(160px,100px);
 							@include height(auto);
 							display: block;
 							position: absolute;
 							@include top(50%);
-							@include left(30px);
+							@include left(30px,15px);
 							transform: translateY(-50%);
 						}
 					}
 					a.toggle {
 						display: none;
+
+						@include max(s) {
+							display: block;
+							width: 20px;
+							height: 15px;
+							position: absolute;
+							top: 50%;
+							right: 20px;
+							transform: translateY(-50%);
+						
+							span {
+								display: block;
+								width: 20px;
+								height: 2px;
+								background-color: #000;
+								position: absolute;
+						
+								&:first-child {
+									top: 0;
+									left: 0;
+								}
+						
+								&:nth-child(2) {
+									top: 50%;
+									left: 0;
+								}
+						
+								&:last-child {
+									top: 100%;
+									left: 0;
+								}
+							}
+						
+							&.on {
+								span {
+									&.first {
+										top: 50%;
+										animation: toggle1 2000ms linear both;
+									}
+							
+									&.second {
+										display: none;
+									}
+							
+									&.third {
+										top: 50%;
+										animation: toggle2 2000ms linear both;
+									}
+								}
+							}
+						}
 					}
 				}
 				nav {
 					ul {
 						position: absolute;
-						@include left(42%);
-						@include top(50%);
+						@include left(42%,0);
+						@include top(50%,-100%);
 						transform: translate(-50%, -50%);
-						@include width(600px);
+						@include width(600px, 100%);
 						@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+
+						@include max(s) {
+							display: block;
+							position: fixed;
+						}
 
 						li {
 							line-height: 1;
 							a {
 								@include fontSize(13px);
 								color: $color_text;
+								position: relative;
+								display: inline-block;
+							
+								&::before {
+									content: '';
+									display: block;
+									@include width(100%);
+									@include height(20px);
+									position: absolute;
+									@include bottom(-5px);
+									@include left(0);
+									background-image: linear-gradient($color_main, $color_main);
+									background-repeat: no-repeat;
+									background-position: center bottom;
+									background-size: 0% 2px;
+									transition: background-size .3s ease-out;
+								}
+								&:hover {
+									&::before {
+										background-size: 100% 2px;
+									}
+								}
 							}
 						}
 					}
@@ -144,6 +256,15 @@
 					position: absolute;
 					@include top(0);
 					@include right(170px);
+					transition: opacity .3s ease-out;
+
+					&:hover {
+						opacity: .8;
+					}
+
+					@include max(s) {
+						display: none;
+					}
 				}
 				a.contact {
 					background-color: $color_sub;
@@ -157,6 +278,15 @@
 					position: absolute;
 					@include top(0);
 					@include right(0);
+					transition: opacity .3s ease-out;
+
+					&:hover {
+						opacity: .8;
+					}
+
+					@include max(s) {
+						display: none;
+					}
 				}
 			}
 

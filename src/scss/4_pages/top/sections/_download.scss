@@ -56,7 +56,18 @@
                         border-radius: 5px;
                         box-shadow: 4px 4px 4px rgba(#555555,.5);
 
-                        @include arrowAbs($color:#fff, $size:6, $width:2,$layout:right,$position:20,$direction:right)
+                        @include arrowAbs($color:#fff, $size:6, $width:2,$layout:right,$position:20,$direction:right);
+
+                        transition: background-color .3s ease-out,
+                        color .3s ease-out;
+
+                        &:hover {
+                            background-color: #fff;
+                            color: $color_sub;
+                            &::before {
+                                border-color: $color_sub;
+                            }
+                        }
                     }
                 }
             }

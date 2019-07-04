@@ -9,7 +9,7 @@ const Common = () => {
 
     const SVGs = [].slice.call(document.querySelectorAll('.j-dots'), 0);
 
-    const DURATION = 800;
+    const DURATION = 200;
 
     SVGs.forEach( v => {
 

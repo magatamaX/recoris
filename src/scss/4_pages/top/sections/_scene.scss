@@ -14,15 +14,15 @@
 
             &_list {
                 @include flexBase( $wrap: "wrap", $direction: "row", $justify: "space-between", $align: "stretch" );
-                @include mt(50px);
+                @include mt(50px, 30px);
 
                 &_item {
-                    @include width(280px, 50%);
-                    @include mb(60px);
+                    @include width(280px, 49%);
+                    @include mb(60px, 10px);
 
                     &:nth-child(even) {
                         position: relative;
-                        @include top(-70px);
+                        @include top(-70px, 0);
                     }
 
                     figure {
@@ -39,8 +39,9 @@
 
                     p {
                         text-align: center;
-                        @include mt(10px);
+                        @include mt(10px, 0);
                         font-weight: bold;
+                        @include fontSize(16px, 9px);
                     }
 
                 }

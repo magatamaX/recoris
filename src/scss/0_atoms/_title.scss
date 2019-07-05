@@ -9,8 +9,13 @@
     .a-ttl {
         font-family: $font_josefin;
         font-weight: 700;
-        @include fontSize(50px);
+        @include fontSize(50px, 27.5px);
         color: $color_main;
+
+        @include max(s) {
+            text-align: center;
+            line-height: 1;
+        }
 
         &--center {
             @extend .a-ttl;
@@ -21,9 +26,13 @@
 
     .a-subttl {
         font-weight: bold;
-        @include fontSize(16px);
-        @include mt(10px);
+        @include fontSize(16px,12px);
+        @include mt(10px, 0);
         letter-spacing: 0.1em;
+
+        @include max(s) {
+            text-align: center;
+        }
 
         &--center {
             @extend .a-subttl;

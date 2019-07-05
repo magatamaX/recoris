@@ -8,7 +8,7 @@
     &#top {
 
         .p-interview {
-            @include pd(80px 0 50px);
+            @include pd(80px 0 50px, 35px 0);
             overflow: hidden;
 
             &_bg {
@@ -19,6 +19,10 @@
                 @include top(40px);
                 @include right(calc( 50% + 90px));
                 background-color: rgba($color_sub, .1);
+
+                @include max(s) {
+                    display: none;
+                }
             }
 
             &_txtBox {
@@ -26,19 +30,31 @@
             }
 
             &_txt {
-                @include fontSize(16px);
+                @include fontSize(16px, 13px);
                 line-height: 2.1875;
                 max-width: 481.38px;
 
+                @include max(s) {
+                    line-height: 1.8;
+                    max-width: none;
+                }
+
                 &--large {
-                    @include fontSize(23px);
-                    @include mb(20px);
+                    @include fontSize(23px, 15px);
+                    @include mb(20px, 10px);
                     letter-spacing: 0.1em;
+
+                    @include max(s) {
+                        line-height: 1.8;
+                    }
                 }
             }
 
             &_btn {
                 @include mt(30px);
+                @include max(s) {
+                    display: none;
+                }
 
                 a {
                     display: block;
@@ -67,9 +83,9 @@
             }
 
             &_list {
-                @include width(900px);
+                @include width(900px, auto);
                 @include ml(auto);
-                @include mt(-80px);
+                @include mt(-80px, 20px);
 
                 &_item {
 
@@ -106,10 +122,10 @@
 
                 &_txt {
                     position: absolute;
-                    @include pd(15px 30px);
+                    @include pd(15px 30px, 10px);
                     background-color: rgba($color_sub, .8);
                     color: #fff;
-                    @include fontSize(16px);
+                    @include fontSize(16px, 9px);
                     line-height: 1.5625;
                     @include bottom(10px);
                     white-space: nowrap;

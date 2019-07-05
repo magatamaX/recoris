@@ -9,17 +9,27 @@
     &#top {
 
         .p-plan {
-            @include pd(80px 0 70px);
+            @include pd(80px 0 70px, 35px 0);
             background-color: #e5eaec;
 
             &_txt {
                 text-align: center;
-                @include mt(40px);
-                @include fontSize(18px);
+                @include mt(40px, 20px);
+                @include fontSize(18px, 16px);
+                @include max(s) {
+                    text-align: left;
+                }
             }
 
             &_table {
                 @include mg(30px 0 40px);
+                @include max(s) {
+                    width: auto;
+                    display: block;
+                    overflow-x: scroll;
+                    white-space: nowrap;
+                    -webkit-overflow-scrolling: touch;
+                }
 
                 &_note {
                     @include fontSize(14px);
@@ -29,8 +39,15 @@
                 table {
                     width: 100%;
                     table-layout: fixed;
+
+                    @include max(s) {
+                        display: table;
+                        width: 1200px;
+                        table-layout: fixed;
+                    }
                     
                     tbody {
+
                         tr {
                             th {
                                 font-weight: bold;
@@ -77,10 +94,10 @@
 
             &_example {
                 background-color: #fff;
-                @include width(800px);
+                @include width(800px, auto);
                 @include mg(40px auto 0);
-                @include pd(30px 100px 40px);
-                @include fontSize(16px);
+                @include pd(30px 100px 40px, 10px);
+                @include fontSize(16px, 12px);
 
                 span {
                     color: $color_main;
@@ -91,15 +108,15 @@
                 }
 
                 &_subttl {
-                    @include mt(20px);
+                    @include mt(20px, 10px);
                 }
 
                 &_list {
-                    @include mt(30px);
+                    @include mt(30px, 10px);
 
                     &_item {
                         + .p-plan_example_list_item {
-                            @include mt(10px);
+                            @include mt(0);
                         }
 
                         &::before {

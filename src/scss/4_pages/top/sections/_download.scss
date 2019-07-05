@@ -9,7 +9,7 @@
     &#top {
 
         .p-download {
-            @include pd(70px 0);
+            @include pd(70px 0, 35px 0);
             background-color: #e5eaec;
             position: relative;
 
@@ -24,26 +24,36 @@
                 transform: translateX(-55%);
                 @include bottom(-60px);
                 z-index: 0;
+                @include width(auto, 75%);
             }
 
             &_txt {
                 text-align: center;
-                @include fontSize(16px);
-                @include mt(40px);
+                @include fontSize(16px, 13px);
+                @include mt(40px, 20px);
+
+                @include max(s) {
+                    text-align: left;
+                    line-height: 1.8;
+                }
             }
 
             &_links {
-                @include mt(40px);
-                @include width(400px);
+                @include mt(40px, 20px);
+                @include width(400px, auto);
                 @include ml(auto);
                 @include mr(auto);
 
                 &_stores {
                     @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "center" );
+
+                    a {
+                        @include width(auto, 48%);
+                    }
                 }
 
                 &_contact {
-                    @include mt(40px);
+                    @include mt(40px, 20px);
 
                     a {
                         display: block;

@@ -9,14 +9,14 @@
     &#top {
 
         .p-feature {
-            @include mt(-210px);
-            @include pt(250px);
-            @include pb(110px);
+            @include mt(-210px, 20px);
+            @include pt(250px, 30px);
+            @include pb(110px, 30px);
             background-color: #e5eaec;
 
             &_innerSection {
                 + .p-feature_innerSection {
-                    @include mt(100px);
+                    @include mt(100px, 40px);
                 }
             }
 
@@ -26,28 +26,41 @@
             }
 
             &_ttl {
-                @include fontSize(23px);
+                @include fontSize(23px, 15px);
                 font-weight: bold;
                 letter-spacing: 0.1em;
                 color: $color_main;
-                @include mb(20px);
+                @include mb(20px, 5px);
             }
 
             &_subttl {
-                @include fontSize(18px);
+                @include fontSize(18px, 13px);
                 font-weight: bold;
                 letter-spacing: 0.1em;
-                @include mg(30px auto 20px);
-                @include width(1100px);
+                @include mg(30px auto 20px, 10px auto 5px);
+                @include width(1100px, auto);
+
+                @include max(s) {
+                    text-align: center;
+                }
             }
 
             &_txt {
-                @include fontSize(16px);
+                @include fontSize(16px, 13px);
                 line-height: 2.375;
+
+                @include max(s) {
+                    line-height: 1.5;
+                }
             }
             
             &_box {
                 @include flexBase( $wrap: "wrap", $direction: "row", $justify: "space-between", $align: "center" );
+
+                @include max(s) {
+                    display: block;
+                    margin-top: 20px;
+                }
 
                 &--reverse {
                     @extend .p-feature_box;
@@ -56,17 +69,23 @@
                 }
 
                 &_item {
-                    @include width(50%);
+                    @include width(50%,auto);
                     position: relative;
+
+                    + .p-feature_box_item {
+                        @include mt(20px, 30px);
+                    }
 
                     .__speaker {
                         position: absolute;
-                        @include bottom(-10px);
-                        @include right(350px);
+                        @include top(auto, -65px);
+                        @include bottom(-10px, auto);
+                        @include right(350px, 0);
+                        @include width(auto, 60px);
                     }
 
                     .glide__slide1__slide {
-                        @include pd(0 50px);
+                        @include pd(0 50px, 0 25px);
                         position: relative;
 
                         .glide__glide__slide1 {
@@ -78,18 +97,21 @@
                             top: 50%;
                             left: 0;
                             transform: translateY(-50%);
+                            z-index: 1;
                         }
                         .__next {
                             position: absolute;
                             top: 50%;
                             right: 0;
                             transform: translateY(-50%);
+                            z-index: 1;
                         }
                     }
                     .glide__slide2__slide {
-                        @include pd(0 50px);
-                        @include width(300px);
+                        @include pd(0 50px, 0 60px);
+                        @include width(300px, auto);
                         @include ml(auto);
+                        @include mr(0, auto);
                         position: relative;
 
                         .glide__glide__slide2 {
@@ -119,9 +141,9 @@
                     content: "";
                     font-family: $font_voltaire;
                     text-align: left;
-                    @include fontSize(280px);
+                    @include fontSize(280px, 140px);
                     color: #fff;
-                    @include pr(20px);
+                    @include pr(20px, 10px);
                 }
 
                 &--1 {
@@ -150,86 +172,103 @@
 
             &_list {
                 @include flexBase( $wrap: "wrap", $direction: "row", $justify: "space-between", $align: "stretch" );
-                @include pl(30px);
+                @include pl(30px, 0);
 
                 &_item {
-                    @include width(180px);
-                    @include height(175px);
+                    @include width(180px, 32%);
+                    @include height(175px, auto);
                     background-color: #fff;
                     border: 1px solid $color_main;
                     box-shadow: 2px 2px 4px rgba(#555555, .5);
                     text-align: center;
-                    @include mb(15px);
-                    @include pd(15px 0);
+                    @include mb(15px, 10px);
+                    @include pd(15px 0, 10px 0);
                     position: relative;
 
                     &--row1 {
                         @extend .p-feature_list_item;
-                        @include pd(30px 0);
+                        @include pd(30px 0, 20px 0 10px);
                     }
 
                     p {
-                        @include fontSize(16px);
+                        @include fontSize(16px, 9px);
                         font-weight: bold;
                         line-height: 1.5625;
                     }
 
                     img {
-                        @include height(70px);
+                        @include height(70px, 30px);
                         @include width(auto);
                         position: absolute;
                         @include bottom(20px);
                         left: 50%;
                         transform: translateX(-50%);
 
+                        @include max(s) {
+                            position: static;
+                            transform: none;
+                            margin-top: 8px;
+                        }
+
                     }
                 }
             }
 
             &_wipList {
-                @include width(1100px);
-                @include height(175px);
+                @include width(1100px, auto);
+                @include height(175px, auto);
                 @include ml(auto);
                 @include mr(auto);
                 background-color: #fff;
                 box-shadow: 2px 2px 4px rgba(#555555, .5);
                 border: 1px solid $color_sub;
+                @include pd(0, 0 0 10px);
 
                 &_item {
                     text-align: center;
                     position: relative;
-                    @include pt(20px);
+                    @include pt(20px, 15px);
 
                     &--row1 {
                         @extend .p-feature_wipList_item;
-                        @include pd(30px 0);
+                        @include pd(30px 0, 20px 0);
                     }
                     
                     p {
-                        @include fontSize(16px);
+                        @include fontSize(16px, 10px);
                         line-height: 1.5625;
                     }
 
                     img {
-                        @include height(55px);
+                        @include height(55px, 34px);
                         @include width(auto);
                         position: absolute;
                         @include bottom(25px);
                         left: 50%;
                         transform: translateX(-50%);
+
+                        @include max(s) {
+                            position: static;
+                            transform: none;
+                            margin-top: 10px;
+                        }
                     }
                 }
             }
 
             &_iconList {
-                @include mt(20px);
+                @include mt(20px, 5px);
 
                 &_item {
                     display: inline-block;
                     vertical-align: bottom;
 
+                    img {
+                        @include height(auto, 25px);
+                    }
+
                     + .p-feature_iconList_item {
-                        @include ml(20px);
+                        @include ml(20px, 10px);
                     }
                 }
             }

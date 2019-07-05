@@ -35,6 +35,44 @@ const Common = () => {
     
         observer.observe(HEADER);
 
+        const SP_MENU = CLONE_HEADER.querySelector(".side");
+        const TOGGLE_BUTTON = CLONE_HEADER.querySelector("a.toggle");
+        TOGGLE_BUTTON.addEventListener("click", (e) => {
+
+            e.preventDefault();
+
+            if ( HasClass( SP_MENU, "on") ) {
+                RemoveClass( SP_MENU, "on" )
+            } else {
+                AddClass( SP_MENU, "on" ) 
+            }
+
+            if ( HasClass( TOGGLE_BUTTON, "on") ) {
+                RemoveClass( TOGGLE_BUTTON, "on" )
+            } else {
+                AddClass( TOGGLE_BUTTON, "on" ) 
+            }
+
+        }, false);
+
+        [].slice.call( SP_MENU.querySelectorAll("a.j-smooth-scroll"), 0 ).forEach( v => {
+            v.addEventListener("click", () => {
+
+                if ( HasClass( SP_MENU, "on") ) {
+                    RemoveClass( SP_MENU, "on" )
+                } else {
+                    AddClass( SP_MENU, "on" ) 
+                }
+    
+                if ( HasClass( TOGGLE_BUTTON, "on") ) {
+                    RemoveClass( TOGGLE_BUTTON, "on" )
+                } else {
+                    AddClass( TOGGLE_BUTTON, "on" ) 
+                }
+    
+            });
+        });
+
         let scroll = new mgnSmoothScroll(
             "a.j-smooth-scroll",
             {

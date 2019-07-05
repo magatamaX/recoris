@@ -55,6 +55,12 @@
 			color: #aaaaaa;
 			@include fontSize(12px);
 			transform: translateY(-50%);
+
+			@include max(s) {
+				transform: none;
+				position: static;
+				text-align: center;
+			}
 		}
 	}
 

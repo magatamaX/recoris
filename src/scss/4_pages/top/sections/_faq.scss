@@ -9,10 +9,10 @@
     &#top {
 
         .p-faq {
-            @include pd(70px 0);
+            @include pd(70px 0, 35px 0);
 
             &_list {
-                @include mt(30px);
+                @include mt(30px, 15px);
 
                 &_item {
 
@@ -23,14 +23,19 @@
                 border-bottom: 2px solid #dddddd;
 
                 &_q {
-                    @include pd(30px 30px 30px 60px);
-                    @include fontSize(16px);
+                    @include pd(30px 30px 30px 60px, 15px 0 15px 30px);
+                    @include fontSize(16px, 13px);
                     position: relative;
+
+                    @include max(s) {
+                        line-height: 1.6;
+                    }
 
                     a {
                         color: $color_text;
                         display: block;
                         position: relative;
+                        @include pr(0, 30px);
 
                         &:before,
                         &:after{
@@ -57,8 +62,8 @@
 
                     &::before {
                         content: "Q";
-                        @include fontSize(25px);
-                        @include width(60px);
+                        @include fontSize(25px, 16px);
+                        @include width(60px, auto);
                         text-align: center;
                         position: absolute;
                         left: 0;
@@ -68,18 +73,21 @@
                     }
                 }
                 &_a {
-                    @include pd(0 30px 0 60px);
-                    @include fontSize(14px);
+                    @include pd(0 30px 0 60px, 0 0 0 30px);
+                    @include fontSize(14px, 13px);
                     position: relative;
+                    @include max(s) {
+                        line-height: 1.6;
+                    }
 
                     > div {
-                        @include pd(0 30px 30px 60px);
+                        @include pd(0 30px 30px 60px, 0 0 15px 0);
                     }
 
                     &::before {
                         content: "A";
-                        @include fontSize(20px);
-                        @include width(60px);
+                        @include fontSize(20px, 14px);
+                        @include width(60px, auto);
                         text-align: center;
                         position: absolute;
                         left: 0;

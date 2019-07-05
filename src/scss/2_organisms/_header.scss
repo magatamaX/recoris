@@ -12,18 +12,8 @@
 		&_static {
 
 			> div {
-				@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
-				@include width(1100px);
-				@include pt(30px);
-				@include ml(auto);
-				@include mr(auto);
 
-				position: absolute;
-				@include top(0);
-				@include left(50%);
-				transform: translateX(-50%);
-
-				.bar {
+				> .bar {
 					display: none;
 					h1 {
 						display: none;
@@ -33,80 +23,95 @@
 						display: none;
 					}
 				}
-				nav {
-					ul {
-						@include width(700px);
-						@include height(50px);
-						border: 2px solid $color_main;
-						@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
-						@include pd(0 40px);
-						border-radius: 5px;
-						box-shadow: 4px 4px 4px rgba(#555, .5);
-						background-color: rgba(#fff, .8);
-						li {
-							line-height: 1;
-							@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
-							a {
-								@include fontSize(14px);
-								color: $color_text;
-								position: relative;
-								display: inline-block;
-							
-								&::before {
-									content: '';
-									display: block;
-									@include width(100%);
-									@include height(20px);
-									position: absolute;
-									@include bottom(-5px);
-									@include left(0);
-									background-image: linear-gradient($color_main, $color_main);
-									background-repeat: no-repeat;
-									background-position: center bottom;
-									background-size: 0% 2px;
-									transition: background-size .3s ease-out;
-								}
-								&:hover {
+
+				> .side {
+					@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+					@include width(1100px);
+					@include pt(30px);
+					@include ml(auto);
+					@include mr(auto);
+
+					position: absolute;
+					@include top(0);
+					@include left(50%);
+					transform: translateX(-50%);
+
+
+					nav {
+						ul {
+							@include width(700px);
+							@include height(50px);
+							border: 2px solid $color_main;
+							@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+							@include pd(0 40px);
+							border-radius: 5px;
+							box-shadow: 4px 4px 4px rgba(#555, .5);
+							background-color: rgba(#fff, .8);
+							li {
+								line-height: 1;
+								@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+								a {
+									@include fontSize(14px);
+									color: $color_text;
+									position: relative;
+									display: inline-block;
+								
 									&::before {
-										background-size: 100% 2px;
+										content: '';
+										display: block;
+										@include width(100%);
+										@include height(20px);
+										position: absolute;
+										@include bottom(-5px);
+										@include left(0);
+										background-image: linear-gradient($color_main, $color_main);
+										background-repeat: no-repeat;
+										background-position: center bottom;
+										background-size: 0% 2px;
+										transition: background-size .3s ease-out;
+									}
+									&:hover {
+										&::before {
+											background-size: 100% 2px;
+										}
 									}
 								}
 							}
 						}
 					}
-				}
-				a.login {
-					background-color: $color_main;
-					color: #fff;
-					text-align: center;
-					@include fontSize(16px);
-					@include width(220px);
-					@include height(50px);
-					display: block;
-					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
-					border-radius: 5px;
-					box-shadow: 4px 4px 4px rgba(#555, .5);
-					transition: opacity .3s ease-out;
+					a.login {
+						background-color: $color_main;
+						color: #fff;
+						text-align: center;
+						@include fontSize(16px);
+						@include width(220px);
+						@include height(50px);
+						display: block;
+						@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+						border-radius: 5px;
+						box-shadow: 4px 4px 4px rgba(#555, .5);
+						transition: opacity .3s ease-out;
 
-					&:hover {
-						opacity: .8;
+						&:hover {
+							opacity: .8;
+						}
 					}
-				}
-				a.contact {
-					background-color: $color_sub;
-					color: #fff;
-					text-align: center;
-					@include fontSize(16px);
-					@include width(150px);
-					@include height(50px);
-					display: block;
-					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
-					border-radius: 5px;
-					box-shadow: 4px 4px 4px rgba(#555, .5);
-					transition: opacity .3s ease-out;
+					a.contact {
+						background-color: $color_sub;
+						color: #fff;
+						text-align: center;
+						@include fontSize(16px);
+						@include width(150px);
+						@include height(50px);
+						display: block;
+						@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+						border-radius: 5px;
+						box-shadow: 4px 4px 4px rgba(#555, .5);
+						transition: opacity .3s ease-out;
 
-					&:hover {
-						opacity: .8;
+						&:hover {
+							opacity: .8;
+						}
 					}
 				}
 			}
@@ -132,7 +137,40 @@
 					@include top(0);
 				}
 
+				@include max(s) {
+					height: 0;
+				}
+
+				> .side {
+					@include max(s) {
+						width: 250px;
+						height: 100vh;
+						background-color: rgba(#fff, .9);
+						position: fixed;
+						top: 0;
+						right: -300px;
+						z-index: -1;
+						box-shadow: -5px 5px 5px rgba(#555, .2);
+						transition: right .4s ease-out;
+
+						&.on {
+							right: 0px;
+						}
+					}
+				}
+
 				.bar {
+					@include max(s) {
+						height: 45px;
+						position: fixed;
+						top: 0;
+						left: 0;
+						width: 100%;
+						background-color: #fff;
+						z-index: 10;
+						box-shadow: 2px 0px 4px rgba(#555, .2);
+					}
+
 					h1 {
 						img {
 							@include width(160px,100px);
@@ -200,6 +238,10 @@
 					}
 				}
 				nav {
+					@include max(s) {
+						width: 100%;
+						height: auto;
+					}
 					ul {
 						position: absolute;
 						@include left(42%,0);
@@ -210,16 +252,30 @@
 
 						@include max(s) {
 							display: block;
-							position: fixed;
+							position: static;
+							transform: none;
+							padding-top: 90px;
+							text-align: center;
 						}
 
 						li {
 							line-height: 1;
+
+							@include max(s) {
+								+ li {
+									margin-top: 1.25em;
+								}
+							}
+
 							a {
-								@include fontSize(13px);
+								@include fontSize(13px, 12px);
 								color: $color_text;
 								position: relative;
 								display: inline-block;
+
+								@include max(s) {
+
+								}
 							
 								&::before {
 									content: '';
@@ -234,6 +290,10 @@
 									background-position: center bottom;
 									background-size: 0% 2px;
 									transition: background-size .3s ease-out;
+
+									@include max(s) {
+										display: none;
+									}
 								}
 								&:hover {
 									&::before {
@@ -248,9 +308,9 @@
 					background-color: $color_main;
 					color: #fff;
 					text-align: center;
-					@include fontSize(16px);
-					@include width(235px);
-					@include height(100%);
+					@include fontSize(16px, 12px);
+					@include width(235px, 80%);
+					@include height(100%, auto);
 					display: block;
 					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
 					position: absolute;
@@ -263,16 +323,18 @@
 					}
 
 					@include max(s) {
-						display: none;
+						display: block;
+						position: static;
+						margin: 1.5em auto 0;
 					}
 				}
 				a.contact {
 					background-color: $color_sub;
 					color: #fff;
 					text-align: center;
-					@include fontSize(16px);
-					@include width(170px);
-					@include height(100%);
+					@include fontSize(16px, 12px);
+					@include width(170px, 80%);
+					@include height(100%, auto);
 					display: block;
 					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
 					position: absolute;
@@ -285,7 +347,9 @@
 					}
 
 					@include max(s) {
-						display: none;
+						display: block;
+						position: static;
+						margin: 1.25em auto 0;
 					}
 				}
 			}
@@ -295,3 +359,28 @@
 
 
 }//.fw
+
+@keyframes toggle1 { 
+    0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    5.31% { -webkit-transform: matrix3d(-0.671, -0.742, 0, 0, 0.742, -0.671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(-0.671, -0.742, 0, 0, 0.742, -0.671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    10.51% { -webkit-transform: matrix3d(1, -0.007, 0, 0, 0.007, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, -0.007, 0, 0, 0.007, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    15.82% { -webkit-transform: matrix3d(0.575, 0.818, 0, 0, -0.818, 0.575, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.575, 0.818, 0, 0, -0.818, 0.575, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    21.02% { -webkit-transform: matrix3d(0.405, 0.914, 0, 0, -0.914, 0.405, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.405, 0.914, 0, 0, -0.914, 0.405, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    35.34% { -webkit-transform: matrix3d(0.656, 0.755, 0, 0, -0.755, 0.656, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.656, 0.755, 0, 0, -0.755, 0.656, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    49.55% { -webkit-transform: matrix3d(0.715, 0.699, 0, 0, -0.699, 0.715, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.715, 0.699, 0, 0, -0.699, 0.715, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    78.18% { -webkit-transform: matrix3d(0.707, 0.707, 0, 0, -0.707, 0.707, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.707, 0.707, 0, 0, -0.707, 0.707, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    100% { -webkit-transform: matrix3d(0.707, 0.707, 0, 0, -0.707, 0.707, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.707, 0.707, 0, 0, -0.707, 0.707, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
+  }
+  
+  @keyframes toggle2 { 
+    0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    5.31% { -webkit-transform: matrix3d(-0.671, 0.742, 0, 0, -0.742, -0.671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(-0.671, 0.742, 0, 0, -0.742, -0.671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    10.51% { -webkit-transform: matrix3d(1, 0.007, 0, 0, -0.007, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0.007, 0, 0, -0.007, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    15.82% { -webkit-transform: matrix3d(0.575, -0.818, 0, 0, 0.818, 0.575, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.575, -0.818, 0, 0, 0.818, 0.575, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    21.02% { -webkit-transform: matrix3d(0.405, -0.914, 0, 0, 0.914, 0.405, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.405, -0.914, 0, 0, 0.914, 0.405, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    35.34% { -webkit-transform: matrix3d(0.656, -0.755, 0, 0, 0.755, 0.656, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.656, -0.755, 0, 0, 0.755, 0.656, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    49.55% { -webkit-transform: matrix3d(0.715, -0.699, 0, 0, 0.699, 0.715, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.715, -0.699, 0, 0, 0.699, 0.715, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    78.18% { -webkit-transform: matrix3d(0.707, -0.707, 0, 0, 0.707, 0.707, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.707, -0.707, 0, 0, 0.707, 0.707, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+    100% { -webkit-transform: matrix3d(0.707, -0.707, 0, 0, 0.707, 0.707, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.707, -0.707, 0, 0, 0.707, 0.707, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
+  }
+  

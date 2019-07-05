@@ -12,8 +12,8 @@
             background-image: url("/assets/images/top/caseStudy/bg.jpg");
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: left top;
-            @include pd(80px 0);
+            background-position: center center;
+            @include pd(80px 0, 35px 0);
             position: relative;
             z-index: -2;
             
@@ -32,8 +32,8 @@
 
             &_inner {
                 background-color: rgba(#fff, .8);
-                @include mt(30px);
-                @include pd(60px);
+                @include mt(30px, 20px);
+                @include pd(60px, 15px 15px 30px);
                 border-radius: 5px;
                 box-shadow: 4px 4px 4px rgba(#555555, .5);
                 position: relative;
@@ -41,39 +41,53 @@
             }
 
             &_ttl {
-                @include fontSize(18px);
-                @include mb(30px);
+                @include fontSize(18px, 15px);
+                @include mb(30px, 10px);
+
+                @include max(s) {
+                    span {
+                        font-size: 11px;
+                        display: block;
+                        line-height: 1;
+                    }
+                }
             }
 
             &_detail {
                 @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "flex-start", $align: "stretch" );
-                @include fontSize(15px);
+                @include fontSize(15px, 13px);
                 line-height: 2.53;
+
+                @include max(s) {
+                    display: block;
+                    line-height: 1.8;
+                }
 
                 + .p-caseStudy_detail {
                     @include mt(10px);
                 }
 
                 &_head {
-                    @include width(110px);
+                    @include width(110px, auto);
                     font-weight: bold;
                 }
             }
 
             &_list {
-                @include mt(40px);
+                @include mt(40px, 10px);
 
                 &_item {
                     dl {
                         dt {
                             text-align: center;
                             font-weight: bold;
-                            @include fontSize(16px);
+                            @include fontSize(16px, 12px);
+                            @include mt(0, 10px);
                         }
                         dd {
-                            @include fontSize(15px);
+                            @include fontSize(15px, 10px);
                             line-height: 1.66;
-                            @include mt(20px);
+                            @include mt(20px, 5px);
 
                             img {
                                 @include width(100%);

@@ -22,6 +22,14 @@
 
             text-align: center;
         }
+
+        &_2 {
+            @include fontSize(32px, 20px);
+            text-align: center;
+            color: $color_text;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
     }
 
     .a-subttl {

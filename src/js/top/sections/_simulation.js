@@ -11,15 +11,15 @@ const Simulation = () => {
         if ( hour <= 100 ) {
             return 50000;
         } else if ( hour > 100 && hour <= 200) {
-            return 80000;
+            return hour * 400;
         } else if ( hour > 200 && hour <= 1000 ) {
-            return 380000;
+            return hour * 380;
         } else if ( hour > 1000 && hour <= 2500 ) {
-            return 900000;
+            return hour * 360;
         } else if ( hour > 2500 && hour <= 5000 ) {
-            return 1750000;
+            return hour * 350;
         } else {
-            return 0;
+            throw Error('金額が大きすぎます。');
         }
     };
 
@@ -35,18 +35,25 @@ const Simulation = () => {
         } else if ( GB > 2000 && GB <= 3000 ) {
             return 360000;
         } else {
-            return 0;
+            throw Error('金額が大きすぎます。');
         }
     };
 
     const calculate = () => {
         const people = Number(document.getElementById('people').value) || 0;
-        const days = Number(document.getElementById('days').value) || 0;
-        const hours = Number(document.getElementById('hours').value) || 0;
+        const days   = Number(document.getElementById('days').value)   || 0;
+        const hours  = Number(document.getElementById('hours').value)  || 0;
 
-        document.getElementById('pricePerHour').innerText = getPricePerHour(hours*days*people);
-        document.getElementById('pricePerGB').innerText = getPricePerGB(days);
-        document.getElementById('totalPrice').innerText = getPricePerHour(hours*days*people) + getPricePerGB(days);
+        try {
+            document.getElementById('pricePerHour').innerText = String(getPricePerHour( hours*days*people )).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+            document.getElementById('pricePerGB').innerText   = String(getPricePerGB( 0.015*hours*days*people )).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+            document.getElementById('totalPrice').innerText   = String(getPricePerHour( hours*days*people ) + getPricePerGB( 0.015*hours*days*people )).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+        } catch (e) {
+            console.log(e);
+            document.getElementById('pricePerHour').innerText = '---';
+            document.getElementById('pricePerGB').innerText   = '---';
+            document.getElementById('totalPrice').innerText   = '---';
+        };
     }
 
     const FORM = document.getElementById('simulationForm');

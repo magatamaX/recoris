@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+// dots
+.fw#privacy {
+
+    .p-section {
+        @include pd(160px 0 80px, 90px 0 60px);
+        @include fontSize(15px, 12px);
+        min-height: 100vh;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .p-txt {
+            @include fontSize(14px);
+            @include mt(60px);
+        }
+
+        .p-innerSection {
+            @include mt(40px);
+
+            h3 {
+                @include fontSize(16px);
+                font-weight: bold;
+                @include mb(10px);
+            }
+
+            p {
+                @include fontSize(14px);
+                line-height: 1.8;
+            }
+        }
+
+    
+    }
+
+}

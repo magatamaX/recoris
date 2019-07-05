@@ -138,6 +138,12 @@
                             background-color: #fff;
                             color: $color_sub;
                         }
+
+                        br {
+                            @include max(s) {
+                                display: none;
+                            }
+                        }
                     }
                 }
             }

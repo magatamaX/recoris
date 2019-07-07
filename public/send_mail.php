@@ -25,16 +25,16 @@ if( !empty($_POST) ) {
             $param = array(
                 'host' => 'sv1406.xserver.jp',
                 'port' => 587,
-                'from' => 'info@blockchaininitiative.jp',
+                'from' => 'info@recoris.jp',
                 'protocol' => 'SMTP_AUTH',
-                'user' => 'info@blockchaininitiative.jp',
+                'user' => 'info@recoris.jp',
                 'pass' => 'accesspass'
             );
             $mail->smtpServer($param);
 
-            $mail->to('info@blockchaininitiative.jp');
-            $mail->from('info@blockchaininitiative.jp');
-            $mail->subject('[Blockchain Initiative Inc.]WEBサイトよりお問い合わせがありました');
+            $mail->to('info@recoris.jp');
+            $mail->from('info@recoris.jp');
+            $mail->subject('[RECORiS]WEBサイトよりお問い合わせがありました');
             $mail->text(
                 "--------------------------------------------------------------\n".
                 "このメールはシステムからの自動送信メールです。\n".
@@ -50,8 +50,8 @@ if( !empty($_POST) ) {
             if ( $mail->send() ) {
 
                 $mail->to($clean['mail']);
-                $mail->from('info@blockchaininitiative.jp');
-                $mail->subject('[Blockchain Initiative Inc.] お問い合わせありがとうございます');
+                $mail->from('info@recoris.jp');
+                $mail->subject('[RECORiS] お問い合わせありがとうございます');
                 $mail->text(
                     "お問い合わせ内容は以下となります。\n\n".
                     "---\n".

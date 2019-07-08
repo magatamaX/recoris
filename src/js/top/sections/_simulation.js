@@ -11,7 +11,7 @@ const Simulation = () => {
         if ( hour <= 100 ) {
             return 50000;
         } else if ( hour > 100 && hour <= 200) {
-            return hour * 400;
+            return (hour * 400) > 50000 ? hour * 400 : 50000;
         } else if ( hour > 200 && hour <= 1000 ) {
             return hour * 380;
         } else if ( hour > 1000 && hour <= 2500 ) {
@@ -48,11 +48,15 @@ const Simulation = () => {
             document.getElementById('pricePerHour').innerText = String(getPricePerHour( hours*days*people )).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
             document.getElementById('pricePerGB').innerText   = String(getPricePerGB( 0.015*hours*days*people )).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
             document.getElementById('totalPrice').innerText   = String(getPricePerHour( hours*days*people ) + getPricePerGB( 0.015*hours*days*people )).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+            document.getElementById('totalHour').innerText    = String(hours*days*people).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+            document.getElementById('totalGB').innerText      = Math.round(0.015*hours*days*people);
         } catch (e) {
             console.log(e);
             document.getElementById('pricePerHour').innerText = '---';
             document.getElementById('pricePerGB').innerText   = '---';
             document.getElementById('totalPrice').innerText   = '---';
+            document.getElementById('totalHour').innerText    = '---';
+            document.getElementById('totalGB').innerText      = '---';
         };
     }
 

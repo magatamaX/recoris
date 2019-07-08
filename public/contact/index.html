@@ -88,35 +88,38 @@
                             また、休業日は翌営業日以降の対応となりますのでご了承ください。</p>
 
                         <form id="mail_form" method="post" action="/send_mail.php">
+                            <p class="p-form_att"><sup class="req">*</sup>入力が必須の項目です。</p>
                             <table class="p-form_table">
                                 <tr>
-                                    <th>お名前<sup class="req">*</sup ></th>
+                                    <th>お名前<sup class="req">*</sup></th>
                                     <td><input type="text" name="name" id="name" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <th>会社名<sup class="req">*</sup ></th>
+                                    <th>会社名<sup class="req">*</sup></th>
                                     <td><input type="text" name="companyName" id="companyName" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <th>電話番号<sup class="req">*</sup ></th>
+                                    <th>部署名</th>
+                                    <td><input type="text" name="departmentName" id="departmentName" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <th>電話番号<sup class="req">*</sup></th>
                                     <td><input type="text" name="tel" id="tel" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <th>メールアドレス<sup class="req">*</sup ></th>
+                                    <th>メールアドレス<sup class="req">*</sup></th>
                                     <td><input type="text" name="mail" id="mail" class="long" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <th>お問い合わせ内容<sup class="req">*</sup ></th>
+                                    <th>お問い合わせ内容<sup class="req">*</sup></th>
                                     <td><textarea name="content" id="content" class="long" cols="50" rows="5" ></textarea></td>
                                 </tr>
                             </table>
 
-                            <p class="p-form_att"><sup class="req">*</sup>入力が必須の項目です。</p>
-
                             <div class="p-form_agreement">
                                 <div class="f-form_label">
                                     <input type="checkbox" name="agreement" id="agreement">
-                                    <label>プライバシーポリシーに同意する</label>
+                                    <label>プライバシーポリシーに同意する<sup class="req">*</sup></label>
                                 </div>
                             </div>
 
@@ -139,9 +142,9 @@
                                     <section class="p-innerSection">
                                         <h3>個人情報の第三者への開示・提供の禁止</h3>
                                         <p>当社は、お客さまよりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。<br>
-                                        お客さまの同意がある場合<br>
-                                        お客さまが希望されるサービスを行なうために当社が業務を委託する業者に対して開示する場合<br>
-                                        法令に基づき開示することが必要である場合</p>
+                                        ・お客さまの同意がある場合<br>
+                                        ・お客さまが希望されるサービスを行なうために当社が業務を委託する業者に対して開示する場合<br>
+                                        ・法令に基づき開示することが必要である場合</p>
                                     </section>
                 
                                     <section class="p-innerSection">

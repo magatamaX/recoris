@@ -61,7 +61,7 @@
             }
 
             &_list {
-                @include width(510px, 275px);
+                @include width(580px, 300px);
                 @include mg(40px auto 0, 20px auto 0);
                 @include flexBase( $wrap: "wrap", $direction: "row", $justify: "flex-start", $align: "center" );
 

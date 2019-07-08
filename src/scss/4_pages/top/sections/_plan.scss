@@ -109,20 +109,57 @@
 
                 &_subttl {
                     @include mt(20px, 10px);
+                    @include mb(10px, 10px);
+                    background-color: $color_sub;
+                    display: inline-block;
+                    @include pd(10px 20px);
+                    line-height: 1;
+                    text-align: center;
+                    color: #fff;
+                }
+
+                &_txt {
+                    @include max(s) {
+                        line-height: 1.5;
+                    }
+                }
+
+                &_figure {
+                    @include mg(30px auto 0, 15px auto 0);
+                    @include width(100%, auto);
+                    @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
+
+                    > * {
+                        @include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+                        @include mg( 0, 0 2.5px);
+                    }
+    
+                    &_box {
+                        @include fontSize(16px,10px);
+                        @include pd(10px, 0 5px);
+                        @include width(180px);
+                        text-align: center;
+                        border: 1px solid $color_sub;
+                        line-height: 1.4;
+                    }
                 }
 
                 &_list {
-                    @include mt(30px, 10px);
+                    @include mb(10px);
+
+                    @include max(s) {
+                        line-height: 1.5;
+                    }
 
                     &_item {
                         + .p-plan_example_list_item {
                             @include mt(0);
                         }
-
-                        &::before {
-                            content: "・";
-                        }
                     }
+                }
+
+                sup {
+                    color: $color_main;
                 }
             }
         }

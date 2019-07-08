@@ -733,7 +733,7 @@
             </section>
             <!-- // kv -->
 
-            <!-- <section id="meter" class="f-section p-meter">
+            <section id="meter" class="f-section p-meter">
 
                 <div class="f-inner">
 
@@ -742,28 +742,28 @@
                     <dl class="p-meter_list">
                         <dt class="p-meter_list_head">録音時間</dt>
                         <dd class="p-meter_list_data">
-                            <span class="p-meter_list_data_num">12</span>
+                            <span id="meterHours" class="p-meter_list_data_num">00</span>
                             <span class="p-meter_list_data_unit">H</span>
-                            <span class="p-meter_list_data_num">34</span>
+                            <span id="meterMinutes" class="p-meter_list_data_num">00</span>
                             <span class="p-meter_list_data_unit">M</span>
-                            <span class="p-meter_list_data_num">56</span>
+                            <span id="meterSeconds" class="p-meter_list_data_num">00</span>
                             <span class="p-meter_list_data_unit">S</span>
                         </dd>
                     </dl>
                     <dl class="p-meter_list">
                         <dt class="p-meter_list_head">録音容量</dt>
                         <dd class="p-meter_list_data">
-                            <span class="p-meter_list_data_num">3,627</span>
+                            <span id="meterMBs" class="p-meter_list_data_num">00</span>
                             <span class="p-meter_list_data_unit">MB</span>
                         </dd>
                     </dl>
-                    <dl class="p-meter_list">
+                    <!-- <dl class="p-meter_list">
                         <dt class="p-meter_list_head">認識単語数</dt>
                         <dd class="p-meter_list_data">
                             <span class="p-meter_list_data_num">12,345</span>
                             <span class="p-meter_list_data_unit">WORDS</span>
                         </dd>
-                    </dl> 
+                    </dl>  -->
 
                 </div>
 
@@ -771,7 +771,7 @@
                     <video id="meterVideo" src="/assets/video/meterbg.mp4" autoplay loop muted playsinline webkit-playsinline></video>
                 </div>
             
-            </section> -->
+            </section>
             <!-- // meter -->
 
             <section id="about" class="f-section p-about">
@@ -2200,16 +2200,37 @@
                     <section>
                         <div class="p-plan_example">
                             <h3 class="p-plan_example_ttl">ご利用金額イメージ</h3>
-                            <ul class="p-plan_example_list">
-                                <li class="p-plan_example_list_item">1名様、1時間の接客を<span>1日3回</span>を想定</li>
-                                <li class="p-plan_example_list_item">1時間中 無音を除く<span>20分</span>を録音(音声データ+テキスト化) </li>
-                                <li class="p-plan_example_list_item">1日1時間 × 20日稼働 = <span>300MB</span></li>
-                            </ul>
                             <section>
-                                <h4 class="p-plan_example_subttl">＜10名利用様ご利用の場合＞</h4>
+                                <h4 class="p-plan_example_subttl">1名利用時</h4>                        
+                                <ul class="p-plan_example_list">
+                                    <li class="p-plan_example_list_item">1名様、1時間の接客を<span>1日3回</span>を想定</li>
+                                    <li class="p-plan_example_list_item">1時間中 無音を除く<span>20分</span>を録音(音声データ+テキスト化) </li>
+                                    <li class="p-plan_example_list_item">1日1時間 × 20日稼働 = <span>300MB</span></li>
+                                </ul>
                                 <p class="p-plan_example_txt">
-                                    <span>200時間</span>[時間課金：<span>¥80,000</span>]+<span>1.5GB</span>[容量課金： <span>¥10,000</span>]=ご請求金額[<span>¥90,000</span>]
+                                    1人の月当りの利用時間：1日1時間（20分×3回） × 20日稼働 = 20時間<br>
+                                    1人の月当りの利用容量：1日1時間（20分×3回） ×15MB× 20日稼働 = 300MB
                                 </p>
+                            </section>
+                            <section>
+                                <h4 class="p-plan_example_subttl">10名利用時</h4>
+                                <p class="p-plan_example_txt">
+                                    10人の月当りの利用時間：20時間×10名＝200時間<br>
+                                    10人の月当りの利用容量：300MB× 10名= 3GB
+                                </p>
+                                <figure class="p-plan_example_figure">
+                                    <div class="p-plan_example_figure_box">
+                                        <div>200時間</div><div>時間課金：￥80,000</div>
+                                    </div>
+                                    <div>+</div>
+                                    <div class="p-plan_example_figure_box">
+                                        <div>3GB</div><div>容量課金：￥10,000<sup>*</sup></div>
+                                    </div>
+                                    <div>=</div>
+                                    <div class="p-plan_example_figure_box">
+                                        <div>ご請求金額</div><div>￥90,000</div>
+                                    </div>
+                                </figure>
                             </section>
                         </div>
                     </section>
@@ -2244,7 +2265,7 @@
                                     </div>
                                 </li>
                                 <li class="p-simulation_list_item">
-                                    <label for="hours" class="p-simulation_label">RECORiSを使用する1日あたりの時間をご入力ください<br>例）１日3回訪問、１訪問あたり1時間使用＝３時間使用</label>
+                                    <label for="hours" class="p-simulation_label">RECORiSを使用する1日あたりの時間をご入力ください<br>例）1日3回訪問、1訪問当たり1時間、１時間中20分録音＝1時間</label>
                                     <div class="p-simulation_input">
                                         <input id="hours" name="hours" type="number" />
                                         時間
@@ -2254,6 +2275,7 @@
                         </div>
                     </form>
 
+                    <p class="p-simulation_txt">「時間課金」「容量課金」「月額（ご請求金額）」が自動計算され、表示されます。</p>
                     <div class="p-simulation_resultsList">
                         <div class="p-simulation_resultsList_item--withResult">
                             <dl>
@@ -2261,7 +2283,7 @@
                                 <dd>
                                     <div id="pricePerHour" class="p-simulation_resultBox">0</div>
                                 </dd>
-                                <dd>時間</dd>
+                                <dd><span id="totalHour"></span>時間</dd>
                             </dl>
                         </div>
                         <div class="p-simulation_resultsList_item">+</div>
@@ -2271,7 +2293,7 @@
                                 <dd>
                                     <div id="pricePerGB" class="p-simulation_resultBox">0</div>
                                 </dd>
-                                <dd>GB</dd>
+                                <dd><span id="totalGB"></span>GB</dd>
                             </dl>
                         </div>
                         <div class="p-simulation_resultsList_item">=</div>

@@ -42,6 +42,7 @@ if( !empty($_POST) ) {
                 "お問い合わせフォームから下記の内容で送信ががありました。\n\n".
                 "お名前： ".$clean['name']."\n".
                 "会社名： ".$clean['companyName']."\n".
+                "部署名： ".$clean['departmentName']."\n".
                 "電話番号： ".$clean['tel']."\n".
                 "メールアドレス： ".$clean['mail']."\n".
                 "お問い合わせ内容：\n".$clean['content']."\n"
@@ -57,6 +58,7 @@ if( !empty($_POST) ) {
                     "---\n".
                     "Name: ".$clean['name']."\n".
                     "Company name: ".$clean['companyName']."\n".
+                    "Department name: ".$clean['departmentName']."\n".
                     "Phone number: ".$clean['tel']."\n".
                     "Email address: ".$clean['mail']."\n".
                     "Content of inquiry:\n".$clean['content']."\n".

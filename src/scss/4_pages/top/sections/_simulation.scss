@@ -60,8 +60,16 @@
                 }
             }
 
-            &_resultsList {
+            
+            &_txt {
                 @include mg(60px auto 0, 30px auto 0);
+                @include width(720px, auto);
+                @include fontSize(14px,12px);
+                line-height: 1.5;
+            }
+
+            &_resultsList {
+                @include mg(20px auto 0, 10px auto 0);
                 @include width(720px, auto);
                 @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "center" );
 

@@ -124,6 +124,12 @@
                     }
                 }
 
+                &_note {
+                    @include fontSize(12px, 10px);
+                    text-align: center;
+                    @include mt(10px,5px);
+                }
+
                 &_figure {
                     @include mg(30px auto 0, 15px auto 0);
                     @include width(100%, auto);

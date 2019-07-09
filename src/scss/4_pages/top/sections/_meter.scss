@@ -79,6 +79,15 @@
                     &_num {
                         font-family: $font_DSEG7;
                         @include fontSize(50px, 25px);
+
+                        .result-num {
+
+                            &.one {
+                                -webkit-transform: translateX(26px);
+                                -ms-transform: translateX(26px);
+                                transform: translateX(26px);
+                            }
+                        }
                     }
                     &_unit {
                         font-family: $font_DSEG14;

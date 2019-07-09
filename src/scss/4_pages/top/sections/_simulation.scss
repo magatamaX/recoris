@@ -93,10 +93,10 @@
             &_resultBox {
                 @include height(65px, 55px);
                 @include width(100%);
-                background-color: rgba($color_main, .1);
+                background-color: rgba($color_sub, .1);
                 text-align: center;
                 @include fontSize(16px, 12px);
-                border: 1px solid $color_main;
+                border: 1px solid $color_sub;
                 @include mg(15px 0, 5px 0);
 
                 @include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );

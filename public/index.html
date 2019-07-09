@@ -737,12 +737,12 @@
 
                 <div class="f-inner">
 
-                    <h2 class="p-meter_ttl">RECORiS DATA METER</h2>
+                    <h2 class="p-meter_ttl">RECORiS DATA COUNTER</h2>
 
                     <dl class="p-meter_list">
                         <dt class="p-meter_list_head">録音時間</dt>
                         <dd class="p-meter_list_data">
-                            <span id="meterHours" class="p-meter_list_data_num">00</span>
+                            <span id="meterHours" class="p-meter_list_data_num">000</span>
                             <span class="p-meter_list_data_unit">H</span>
                             <span id="meterMinutes" class="p-meter_list_data_num">00</span>
                             <span class="p-meter_list_data_unit">M</span>
@@ -753,7 +753,7 @@
                     <dl class="p-meter_list">
                         <dt class="p-meter_list_head">録音容量</dt>
                         <dd class="p-meter_list_data">
-                            <span id="meterMBs" class="p-meter_list_data_num">00</span>
+                            <span id="meterMBs" class="p-meter_list_data_num">0,000</span>
                             <span class="p-meter_list_data_unit">MB</span>
                         </dd>
                     </dl>
@@ -2201,19 +2201,16 @@
                         <div class="p-plan_example">
                             <h3 class="p-plan_example_ttl">ご利用金額イメージ</h3>
                             <section>
-                                <h4 class="p-plan_example_subttl">1名利用時</h4>                        
+                                <h4 class="p-plan_example_subttl">10名利用時</h4>                        
                                 <ul class="p-plan_example_list">
-                                    <li class="p-plan_example_list_item">1名様、1時間の接客を<span>1日3回</span>を想定</li>
-                                    <li class="p-plan_example_list_item">1時間中 無音を除く<span>20分</span>を録音(音声データ+テキスト化) </li>
-                                    <li class="p-plan_example_list_item">1日1時間 × 20日稼働 = <span>300MB</span></li>
+                                    <li class="p-plan_example_list_item">1名様、1時間の接客を1日3回を想定</li>
+                                    <li class="p-plan_example_list_item">1時間中 無音を除く20分を録音(音声データ+テキスト化)</li>
+                                    <li class="p-plan_example_list_item">容量は1時間当たり15MB想定</li>
                                 </ul>
                                 <p class="p-plan_example_txt">
                                     1人の月当りの利用時間：1日1時間（20分×3回） × 20日稼働 = 20時間<br>
                                     1人の月当りの利用容量：1日1時間（20分×3回） ×15MB× 20日稼働 = 300MB
                                 </p>
-                            </section>
-                            <section>
-                                <h4 class="p-plan_example_subttl">10名利用時</h4>
                                 <p class="p-plan_example_txt">
                                     10人の月当りの利用時間：20時間×10名＝200時間<br>
                                     10人の月当りの利用容量：300MB× 10名= 3GB
@@ -2231,6 +2228,7 @@
                                         <div>ご請求金額</div><div>￥90,000</div>
                                     </div>
                                 </figure>
+                                <p class="p-plan_example_note"><sup>*</sup>10GBまで10,000円</p>
                             </section>
                         </div>
                     </section>

@@ -24,7 +24,7 @@
     <meta property="og:site_name" content="レコリス">
     <meta property="og:description" content="ティ・アイ・エル株式会社が提供するAIボイスレコーダーソリューション「RECORiS」独自開発されたボイスレコーダーデバイスとソフトウェアによって、現場でのコミュニケーションを全てテキスト保存。あらかじめ設定された禁止語句や大声などをAIが検知するとオペレーションセンターへ自動通報し、密室でのトラブル発生を防ぎます。">
 
-    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style.css?v=20190711" rel="stylesheet">
 
 </head>
 
@@ -737,7 +737,7 @@
 
                 <div class="f-inner">
 
-                    <h2 class="p-meter_ttl">RECORiS DATA COUNTER</h2>
+                    <h2 id="meterTitle" class="p-meter_ttl" data-title="RECORiS DATA COUNTER">&nbsp;</h2>
 
                     <dl class="p-meter_list">
                         <dt class="p-meter_list_head">録音時間</dt>
@@ -753,8 +753,8 @@
                     <dl class="p-meter_list">
                         <dt class="p-meter_list_head">録音容量</dt>
                         <dd class="p-meter_list_data">
-                            <span id="meterMBs" class="p-meter_list_data_num">0,000</span>
-                            <span class="p-meter_list_data_unit">MB</span>
+                            <span id="meterMBs" class="p-meter_list_data_num">0.000</span>
+                            <span id="meterUnit" class="p-meter_list_data_unit">GB</span>
                         </dd>
                     </dl>
                     <!-- <dl class="p-meter_list">
@@ -2201,7 +2201,7 @@
                         <div class="p-plan_example">
                             <h3 class="p-plan_example_ttl">ご利用金額イメージ</h3>
                             <section>
-                                <h4 class="p-plan_example_subttl">10名利用時</h4>                        
+                                <h4 class="p-plan_example_txt">＜10名利用時＞</h4>                        
                                 <ul class="p-plan_example_list">
                                     <li class="p-plan_example_list_item">1名様、1時間の接客を1日3回を想定</li>
                                     <li class="p-plan_example_list_item">1時間中 無音を除く20分を録音(音声データ+テキスト化)</li>
@@ -2386,7 +2386,7 @@
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
     <script src="./assets/js/snap.svg-min.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/main.js?v=20190711"></script>
 
 </body>
 

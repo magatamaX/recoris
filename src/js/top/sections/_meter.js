@@ -108,15 +108,21 @@ function Align(num) {
     }
 };
 
-function TimeCountUp( timeStr, speed, elm, easingType = "easeOutQuint" ) {
+function SecToHour (time) {
+    const sec = (time % 60) % 60;
+    const min = Math.floor(time / 60) % 60;
+    const hour = Math.floor(time / 3600);
 
-    const digits = timeStr.length;
-    let padding = "";
-    for ( let i = 0; i < digits; i++ ) {
-        padding += "0";
-    };
+    return {
+      hour: hour,
+      min: min,
+      sec: sec
+    }
+};
 
-    var POSITION = Number(timeStr);
+function TimeCountUp( second, speed, hourElm, minElm, secElm, easingType = "easeOutQuint" ) {
+
+    var POSITION = second;
 
     var SCROLL_VAL = 0;
 
@@ -144,17 +150,18 @@ function TimeCountUp( timeStr, speed, elm, easingType = "easeOutQuint" ) {
             num +=  - ( MOVE_Y - numPrev );
         }
 
-        // window.scroll( 0, num );
-        elm.innerText = (padding + num).slice(-digits);
+        hourElm.innerText = (`${"000"}${String(SecToHour(num)['hour'])}`).slice(-3);
+        minElm.innerText = (`${"00"}${String(SecToHour(num)['min'])}`).slice(-2);
+        secElm.innerText = (`${"00"}${String(SecToHour(num)['sec'])}`).slice(-2);
 
         numPrev = MOVE_Y;
 
         if( STATUS >= speed ) {
 
             cancelAnimationFrame( render );
-            // window.scroll( 0, POSITION );
-            elm.innerText = (padding + POSITION).slice(-digits);
-
+            hourElm.innerText = (`${"000"}${String(SecToHour(num)['hour'])}`).slice(-3);
+            minElm.innerText = (`${"00"}${String(SecToHour(num)['min'])}`).slice(-2);
+            secElm.innerText = (`${"00"}${String(SecToHour(num)['sec'])}`).slice(-2);
         }
     }
 
@@ -215,54 +222,14 @@ function SizeCountUp( size, speed, elm, unitElm, easingType = "easeOutQuint" ) {
 
 }
 
-function TitleCountUp( str, speed, elm, easingType = "linear" ) {
-
-    var POSITION = str.length;
-
-    var SCROLL_VAL = 0;
-
-    var DIFF = POSITION - SCROLL_VAL;
-    var num = SCROLL_VAL;
-
-    var START_TIME = new Date().getTime();　//描画開始時刻を取得
-    var render;
-    var numPrev = SCROLL_VAL;
-
-    var Loop = function() {
-
-        render = requestAnimationFrame( Loop );
-
-        var CURRENT_TIME = new Date().getTime();　//経過時刻を取得
-        var STATUS = (CURRENT_TIME - START_TIME) // 描画開始時刻から経過時刻を引く
-
-        var MOVE_Y = Math.round( Easing[easingType](STATUS, SCROLL_VAL, Math.abs(DIFF), speed) );
-
-        if( DIFF > 0 ) {
-            num += MOVE_Y - numPrev;
-        } else {
-            num +=  - ( MOVE_Y - numPrev );
-        }
-
-        elm.innerText = str.substring(0,num)
-
-        numPrev = MOVE_Y;
-
-        if( STATUS >= speed ) {
-
-            cancelAnimationFrame( render );
-            elm.innerText = str
-        }
-    }
-
-    Loop();
-}
-
 const Meter = () => {
 
     // console.log("/top/sections/_meter.js");
     if ( !document.getElementById('meter') ) {
         return;
     }
+
+    const API_PATH = 'https://app.recoris.jp/api/total-usage';
 
     const TITLE  = document.getElementById("meterTitle");
     const HOUR   = document.getElementById("meterHours");
@@ -271,54 +238,85 @@ const Meter = () => {
     const MB     = document.getElementById("meterMBs");
     const UNIT   = document.getElementById("meterUnit");
 
-    window.addEventListener("DOMContentLoaded", () => {
-
-        fetch('https://app.recoris.jp/api/total-usage')
-            .then( response => response.json())
-            .then((response) => {
-
-                const callback = (entries) => {
-                    entries.forEach(entry => {
-
-                        if ( entry.isIntersecting ) {
-
-                            if ( !HasClass( entry.target, 'on') ) {
-                                AddClass( entry.target, 'on');
-
-                                // console.log("ONになりました")
-                                TitleCountUp( TITLE.dataset.title, 2000, TITLE);
-                                setTimeout(() => {
-                                    [].slice.call( document.querySelectorAll('.p-meter_list'), 0).forEach(v => {
-                                        AddClass(v, 'on');
-                                    });
-                                }, 500);
-                                setTimeout(() => {
-                                    TimeCountUp( response.time.split(":")[0], 2000, HOUR);
-                                    TimeCountUp( response.time.split(":")[1], 2000, MINUTE);
-                                    TimeCountUp( response.time.split(":")[2], 2000, SECOND);
-                                }, 1000);
-                                setTimeout(() => {
-                                    SizeCountUp( response.size, 2000, MB, UNIT );
-                                }, 3000);
-            
-                                observer.unobserve(entry.target);
-                            }
-
-                        }
-            
-                      });
-                }
-                const observer = new IntersectionObserver(callback, {
-                    threshold: [ 0.75 ]
-                });
-            
-                observer.observe(document.getElementById('meter'));
-            })
+    const Sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+    const Fetch = async (url) => {
+        const result = await fetch(url)
+            .then( res => res.json() )
+            .then( res => ({
+                duration: res.duration,
+                size: res.size
+            }))
             .catch( error => {
-                console.log("取得できません。", error)
+                console.log("取得できません。", error);
+                throw new Error(error)
             })
+        return result
+    };
+    const Reload = (url, timeout) => {
+        const repeat = () => {
+            // console.log('更新します。')
+            Fetch(url)
+                .then(({ duration, size }) => {
+                    const { unit, divisorNum, fixNum } = Align(size);
+                    HOUR.innerText = SecToHour(duration)['hour'];
+                    MINUTE.innerText = SecToHour(duration)['min'];
+                    SECOND.innerText = SecToHour(duration)['sec'];
+                    MB.innerText = ( size / divisorNum ).toFixed(fixNum);
+                    UNIT.innerText = unit;
+                })
+                .catch(e => {
+                    HOUR.innerText = "---";
+                    MINUTE.innerText = "--";
+                    SECOND.innerText = "--";
+                    MB.innerText = "----";
+                });
+        }
+        setInterval(repeat, timeout);
+    }
 
-    }, false)
+    const callback = (entries) => {
+        entries.forEach(entry => {
+
+            if ( entry.isIntersecting ) {
+
+                if ( !HasClass( entry.target, 'on') ) {
+                    AddClass( entry.target, 'on');
+
+                    (async () => {
+
+                        await Sleep(500);
+                        await [].slice.call( document.querySelectorAll('.p-meter_list'), 0).forEach(v => {
+                            AddClass(v, 'on');
+                        });
+                        await Sleep(500)
+                        await Fetch(API_PATH)
+                            .then(({ duration, size }) => {
+                                TimeCountUp( duration, 2000, HOUR, MINUTE, SECOND);
+                                SizeCountUp( size, 2000, MB, UNIT );
+                            })
+                            .catch(e => {
+                                HOUR.innerText = "---";
+                                MINUTE.innerText = "--";
+                                SECOND.innerText = "--";
+                                MB.innerText = "----";
+                            });
+                        await Sleep(8000);
+                        await Reload(API_PATH, 5000);
+                        await observer.unobserve(entry.target);
+
+                    })();
+                    
+                }
+
+            }
+
+          });
+    }
+    const observer = new IntersectionObserver(callback, {
+        threshold: [ 0.75 ]
+    });
+
+    observer.observe(document.getElementById('meter'));
 
 };
 

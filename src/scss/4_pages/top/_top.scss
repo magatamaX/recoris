@@ -28,8 +28,8 @@
         &--1 {
             @extend .p-dots;
             position: absolute;
-            @include top(0);
-            @include left(0);
+            @include top(-20px);
+            @include left(-130px);
             z-index: -1;
         }
 

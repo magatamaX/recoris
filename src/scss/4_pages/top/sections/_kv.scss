@@ -47,6 +47,7 @@
 
             &_video {
                 max-width: 1100px;
+                position: relative;
                 @include mg(40px auto, 0);
                 box-shadow: 3px 3px 6px rgba(#555555, .5);
 
@@ -58,6 +59,52 @@
                     display: block;
                     @include width(100%);
                     @include height(auto);
+                }
+
+                button {
+                    position: absolute;
+                    z-index: 1;
+                    @include right(15px, 5px);
+                    @include bottom(15px, 5px);
+                    margin: 0;
+                    border: 0;
+                    padding: 5px;
+                    @include fontSize(30px, 15px);
+                    cursor: pointer;
+                    outline: none;
+                    font-family: 'IcoFont' !important;
+                    speak: none;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    white-space: nowrap;
+                    word-wrap: normal;
+                    direction: ltr;
+                    line-height: 1;
+                    background-color: transparent;
+                  /* Better Font Rendering =========== */
+                    -webkit-font-feature-settings: "liga";
+                    -webkit-font-smoothing: antialiased;
+
+                    &:hover, &:focus {
+                        background-color: rgba(0,0,0,.3);
+                    }
+
+                    span {
+                        display: none;
+                    }
+
+                    &.off {
+                        &::before {
+                            content: "\ecba";
+                        }
+                    }
+                    &.on {
+                        &::before {
+                            content: "\ecb8";
+                        }
+                    }
                 }
             }
 

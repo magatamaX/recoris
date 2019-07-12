@@ -141,7 +141,7 @@ const agreementPrivacyPolicy = () => {
 
 const Common = () => {
     // console.log("/common/index.js");
-    SVG();
+    // SVG();
     HeaderFunc();
     agreementPrivacyPolicy();
 };

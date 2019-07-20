@@ -7,6 +7,21 @@ const Kv = () => {
 
     const VIDEO = document.getElementById('kvVideo').querySelector('video');
     const BUTTON = document.getElementById('kvVideo').querySelector('button');
+    const LOADING_ICON = document.getElementById('kvVideo').querySelector('.loading');
+
+    VIDEO.addEventListener("loadeddata", e => {
+        ( async ()=> {
+
+            const Sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+
+            VIDEO.play();
+            await Sleep(700);
+            LOADING_ICON.className = await "loading loaded";
+            await Sleep(500);
+            LOADING_ICON.className = await "loading loaded off";
+
+        })();
+    })
 
     BUTTON.addEventListener('click', function () {
         if(VIDEO.muted){

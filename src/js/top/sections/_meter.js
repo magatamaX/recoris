@@ -150,7 +150,7 @@ function TimeCountUp( second, speed, hourElm, minElm, secElm, easingType = "ease
             num +=  - ( MOVE_Y - numPrev );
         }
 
-        hourElm.innerText = (`${"000"}${String(SecToHour(num)['hour'])}`).slice(-3);
+        hourElm.innerText = String(SecToHour(num)['hour']);
         minElm.innerText = (`${"00"}${String(SecToHour(num)['min'])}`).slice(-2);
         secElm.innerText = (`${"00"}${String(SecToHour(num)['sec'])}`).slice(-2);
 
@@ -265,7 +265,7 @@ const Meter = () => {
                     UNIT.innerText = unit;
                 })
                 .catch(e => {
-                    HOUR.innerText = "---";
+                    HOUR.innerText = "-";
                     MINUTE.innerText = "--";
                     SECOND.innerText = "--";
                     MB.innerText = "----";

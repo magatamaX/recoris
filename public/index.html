@@ -766,21 +766,21 @@
                                 <li class="p-simulation_list_item">
                                     <label for="people" class="p-simulation_label">RECORiSを使用する人数をご入力ください</label>
                                     <div class="p-simulation_input">
-                                        <input id="people" name="people" type="number" />
+                                        <input id="people" name="people" type="number" min="0" inputmode="numeric" pattern="[0-9]*" />
                                         人
                                     </div>
                                 </li>
                                 <li class="p-simulation_list_item">
                                     <label for="days" class="p-simulation_label">RECORiSを使用する人の月平均労働日数をご入力ください</label>
                                     <div class="p-simulation_input">
-                                        <input id="days" name="days" type="number" />
+                                        <input id="days" name="days" type="number" min="0" inputmode="numeric" pattern="[0-9]*" />
                                         日
                                     </div>
                                 </li>
                                 <li class="p-simulation_list_item">
                                     <label for="hours" class="p-simulation_label">RECORiSを使用する1日あたりの時間をご入力ください<br>例）1日3回訪問、1訪問当たり1時間、１時間中20分録音＝1時間</label>
                                     <div class="p-simulation_input">
-                                        <input id="hours" name="hours" type="number" />
+                                        <input id="hours" name="hours" type="number" min="0" inputmode="numeric" pattern="[0-9]*" />
                                         時間
                                     </div>
                                 </li>

@@ -259,8 +259,8 @@ const Meter = () => {
                 .then(({ duration, size }) => {
                     const { unit, divisorNum, fixNum } = Align(size);
                     HOUR.innerText = SecToHour(duration)['hour'];
-                    MINUTE.innerText = SecToHour(duration)['min'];
-                    SECOND.innerText = SecToHour(duration)['sec'];
+                    MINUTE.innerText = (`${"00"}${String(SecToHour(duration)['min'])}`).slice(-2);
+                    SECOND.innerText = (`${"00"}${String(SecToHour(duration)['sec'])}`).slice(-2);
                     MB.innerText = ( size / divisorNum ).toFixed(fixNum);
                     UNIT.innerText = unit;
                 })

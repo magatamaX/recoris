@@ -148,6 +148,24 @@
                 }
             }
         }
+
+        .p-message {
+            @include pt(300px, 150px);
+            text-align: center;
+
+            &__thanks {
+                color: $color_main;
+                font-weight: bold;
+                @include fontSize(30px, 24px);
+                @include mb(30px);
+            }
+
+            &__failure {
+                color: red;
+                @include fontSize(20px);
+                @include mb(30px);
+            }
+        }
     
     }
 

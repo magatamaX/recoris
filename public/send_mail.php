@@ -66,7 +66,7 @@ if( !empty($_POST) ) {
                 );
 
                 if ( $mail->send() ) {
-                    header('Location: ./?form=ok#contact');
+                    header('Location: ./contact/success.html');
                     exit;
                 }
             }
@@ -74,7 +74,7 @@ if( !empty($_POST) ) {
     }
 }
 
-header('Location: ./?form=ng#contact');
+header('Location: ./contact/failure.html');
 exit;
 
 ?>

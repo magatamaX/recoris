@@ -11,23 +11,83 @@
         margin-left: auto;
         margin-right: auto;
 
+        .p-article {
+            @include mt(100px, 50px);
+
+            @include max(s) {
+                line-height: 1.6;
+            }
+
+            > h3 {
+                @include fontSize(24px, 20px);
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+
         .p-txt {
-            @include fontSize(14px);
+            @include fontSize(14px, 12px);
             @include mt(60px);
         }
 
+        .p-right-text {
+            @include mt(1em);
+            text-align: right;
+        }
+
         .p-innerSection {
-            @include mt(40px);
+            @include mt(40px, 30px);
 
             h4 {
-                @include fontSize(16px);
+                @include fontSize(16px, 14px);
                 font-weight: bold;
                 @include mb(10px);
             }
 
             p {
-                @include fontSize(14px);
+                @include fontSize(14px, 12px);
                 line-height: 1.8;
+                text-indent: 1em;
+            }
+
+            .p-primaryList {
+                // reset
+                counter-reset: item;
+                list-style-type: none;
+                padding-left: 0;
+          
+                > li {
+                  text-indent: -1em;
+                  padding-left: 1em;
+
+                  + li {
+                      @include mt(1em);
+                  }
+          
+                  &::before {
+                    counter-increment: item;
+                    content: counter(item);
+                    padding-right: .5em;
+                  }
+                }
+            }
+
+            .p-secondaryList {
+                // reset
+                counter-reset: item;
+                list-style-type: none;
+                padding-left: 0;
+          
+                > li {
+                    text-indent: -2em;
+                    padding-left: 2em;
+          
+                  &::before {
+                    counter-increment: item;
+                    content: '('counter(item)')';
+                    padding-right: .7em;
+                  }
+                }
             }
         }
 

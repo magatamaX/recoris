@@ -1,0 +1,197 @@
+@charset "utf-8";
+
+// dots
+.fw#interview {
+
+    .p-br__sp {
+        display: none;
+        @include max(s) {
+            display: inline;
+        }
+    }
+
+    .p-section{
+        @include pd(150px 0 50px, 100px 0 50px);
+        background-color: #e5eaec;
+    }
+
+    .p-innerSection {
+        @include mt(60px, 40px);
+    }
+
+    .p-content {
+        position: relative;
+        z-index: 1;
+        background-color: #fff;
+        @include pd(50px, 15px);
+        @include mt(50px, 20px);
+
+        p {
+            line-height: 2;
+
+            @include max(s) {
+                font-size: 12px;
+            }
+
+            & + p {
+                @include mt(50px, 20px);
+            }
+        }
+    }
+
+    .p-kv {
+        @include mb(40px, 20px);
+    }
+
+    .p-titleBox {
+        @include mb(30px);
+        @include pb(20px);
+        border-bottom: 1px solid $color_main;
+        text-align: center;
+        line-height: 1.4;
+
+        &__title {
+            @include fontSize(33px, 20px);
+            font-weight: bold;
+            @include mb(10px, 5px);
+
+            span {
+                color: $color_main;
+            }
+        }
+
+        &__lead {
+            @include fontSize(18px, 14px);
+            line-height: 1.6 !important;
+        }
+    }
+
+    .p-subtitle {
+        @include fontSize(30px, 18px);
+        @include pb(30px, 20px);
+        @include mb(50px, 30px);
+        font-weight: bold;
+        line-height: 1.4;
+        letter-spacing: .1em;
+        text-align: center;
+        color: $color_main;
+        background-image: url("/assets/images/interview/after.png");
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: 52px;
+        @include max(s) {
+            background-size: 40px;
+        }
+    }
+
+    .p-init-text {
+        @include mb(60px, 40px);
+    }
+
+    .p-question {
+        font-weight: bold;
+    }
+
+    .p-answer {
+        
+        &__name {
+            &--kobayashi {
+                display: inline-block;
+                font-weight: bold;
+                color: #ef6445;
+                @include mr(1em);
+            }
+            &--nagata {
+                display: inline-block;
+                font-weight: bold;
+                color: #50b20f;
+                @include mr(1em);
+            }
+            &--kawamura {
+                display: inline-block;
+                font-weight: bold;
+                color: #16a0bd;
+                @include mr(1em);
+            }
+        }
+    }
+
+    .p-box {
+        @include flexBase( $wrap: "nowrap", $direction: "row", $justify: "flex-start", $align: "stretch" );
+        @include mt(40px, 30px);
+
+        @include max(s) {
+            display: block;
+        }
+
+        + p {
+            @include mt(50px);
+        }
+
+        &__image {
+            flex: 0 0 auto;
+            @include mt(0, 20px);
+        }
+
+        &__text {
+            flex: 1;
+        }
+
+        .p-box__text + .p-box__image {
+            @include ml(40px,0);
+            @include mt(0, 20px);
+        }
+
+        .p-box__image + .p-box__text {
+            @include ml(40px,0);
+            @include mt(0, 20px);
+        }
+    }
+
+    position: relative;
+
+    .a-dots {
+        position: absolute;
+    }
+
+    .p-dots {
+        &__1 {
+            top: 200px;
+            left: -200px;
+        }
+        &__2 {
+            top: 600px;
+            right: -200px;
+        }
+
+        &__3 {
+            top: 1330px;
+            left: -200px;
+        }
+        &__4 {
+            top: 2100px;
+            right: 0;
+        }
+        &__5 {
+            top: 2700px;
+            left: 50px;
+        }
+        &__6 {
+            top: 3840px;
+            right: -100px;
+        }
+        &__7 {
+            top: 4750px;
+            left: -50px;
+        }
+        &__8 {
+            top: 5650px;
+            right: -600px;
+        }
+        &__9 {
+            bottom: 40px;
+            left: 0;
+        }
+    }
+
+}

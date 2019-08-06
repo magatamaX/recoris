@@ -10,6 +10,10 @@
         @include width(721px);
         @include height(252px);
         opacity: .3;
+
+        @include max(s) {
+            display: none;
+        }
     }
 
 

@@ -26,7 +26,7 @@ if( !empty($_POST) ) {
                 'host' => 'sv1406.xserver.jp',
                 'port' => 587,
                 'from' => 'info@recoris.jp',
-                'protocol' => 'SMTP_AUTH',
+                'protocol' => 'SMTP',
                 'user' => 'info@recoris.jp',
                 'pass' => 'accesspass'
             );
@@ -39,7 +39,7 @@ if( !empty($_POST) ) {
                 "--------------------------------------------------------------\n".
                 "このメールはシステムからの自動送信メールです。\n".
                 "--------------------------------------------------------------\n\n".
-                "お問い合わせフォームから下記の内容で送信ががありました。\n\n".
+                "お問い合わせフォームから下記の内容で送信がありました。\n\n".
                 "お名前： ".$clean['name']."\n".
                 "会社名： ".$clean['companyName']."\n".
                 "部署名： ".$clean['departmentName']."\n".
@@ -50,7 +50,17 @@ if( !empty($_POST) ) {
 
             if ( $mail->send() ) {
 
-                $mail->to($clean['mail']);
+
+
+                $mail = new Qdmail();
+
+                $mail -> errorDisplay( false );
+                $mail -> smtp( true );
+                $mail -> lineFeed('\n');
+                $mail->smtpServer($param);
+
+//                $mail->to($clean['mail']);
+/* $mail->to('sehoon.lee@thesss.net');
                 $mail->from('info@recoris.jp');
                 $mail->subject('[RECORiS] お問い合わせありがとうございます');
                 $mail->text(
@@ -69,6 +79,9 @@ if( !empty($_POST) ) {
                     header('Location: ./contact/success.html');
                     exit;
                 }
+*/
+header('Location: ./contact/success.html');
+exit;
             }
         }
     }

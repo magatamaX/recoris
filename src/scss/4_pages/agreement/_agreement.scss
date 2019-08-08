@@ -13,13 +13,14 @@
 
         .p-article {
             @include mt(100px, 50px);
+            line-height: 2;
 
             @include max(s) {
                 line-height: 1.6;
             }
 
             > h3 {
-                @include fontSize(24px, 20px);
+                @include fontSize(24px, 16px);
                 font-weight: bold;
                 text-align: center;
             }
@@ -39,7 +40,6 @@
             @include mt(40px, 30px);
 
             h4 {
-                @include fontSize(16px, 14px);
                 font-weight: bold;
                 @include mb(10px);
             }

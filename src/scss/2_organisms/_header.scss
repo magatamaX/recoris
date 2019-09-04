@@ -26,7 +26,7 @@
 
 				> .side {
 					@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
-					@include width(1100px);
+					@include width(1160px);
 					@include pt(30px);
 					@include ml(auto);
 					@include mr(auto);
@@ -111,6 +111,22 @@
 
 						&:hover {
 							opacity: .8;
+						}
+					}
+				}
+
+				.change_language {
+					@include width(50px);
+					@include height(50px);
+					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+					text-align: center;
+
+					&__link {
+						display: block;
+						@include width(100%);
+						@include height(100%);
+						&.current {
+							text-decoration: underline;
 						}
 					}
 				}
@@ -250,6 +266,10 @@
 						@include width(600px, 100%);
 						@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "space-between", $align: "stretch" );
 
+						@media screen and (max-width: 1290px) and (min-width: 769px) {
+							display: none;
+						}
+
 						@include max(s) {
 							display: block;
 							position: static;
@@ -309,13 +329,13 @@
 					color: #fff;
 					text-align: center;
 					@include fontSize(16px, 12px);
-					@include width(235px, 80%);
+					@include width(210px, 80%);
 					@include height(100%, auto);
 					display: block;
 					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
 					position: absolute;
 					@include top(0);
-					@include right(170px);
+					@include right(200px);
 					transition: opacity .3s ease-out;
 
 					&:hover {
@@ -333,13 +353,13 @@
 					color: #fff;
 					text-align: center;
 					@include fontSize(16px, 12px);
-					@include width(170px, 80%);
+					@include width(150px, 80%);
 					@include height(100%, auto);
 					display: block;
 					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
 					position: absolute;
 					@include top(0);
-					@include right(0);
+					@include right(50px);
 					transition: opacity .3s ease-out;
 
 					&:hover {
@@ -350,6 +370,46 @@
 						display: block;
 						position: static;
 						margin: 1.25em auto 0;
+					}
+				}
+
+				.change_language {
+					@include width(50px, 100%);
+					@include height(100%, auto);
+					position: absolute;
+					@include top(0);
+					@include right(0);
+					@include flexBase( $wrap: "nowrap", $direction: "column", $justify: "center", $align: "center" );
+					text-align: center;
+
+					@include max(s) {
+						position: static;
+						@include flexBase( $wrap: "nowrap", $direction: "row", $justify: "center", $align: "center" );
+					}
+
+					&__link {
+						display: block;
+						@include width(100%, auto);
+						@include height(100%, auto);
+						@include mt(0, 20px);
+
+						@include max(s) {
+							display: inline-block;
+							padding: 0 10px;
+							line-height: 1;
+						}
+
+						&.current {
+							text-decoration: underline;
+						}
+						& + .change_language__link {
+							border-top: 1px solid $color_main;
+							
+							@include max(s) {
+								border-top: 0;
+								border-left: 1px solid $color_main;
+							}
+						}
 					}
 				}
 			}

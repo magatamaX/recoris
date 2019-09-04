@@ -25,6 +25,10 @@
                 @include bottom(-60px);
                 z-index: 0;
                 @include width(auto, 75%);
+
+                @include max(s) {
+                    display: none;
+                }
             }
 
             &_txt {

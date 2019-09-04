@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>AI Voice Recorder Solution 「RECORiS」 | レコリス</title>
+    <meta name="description" content="AI voice recorder solution "RECORiS" is provided by TIL Inc. This proprietary voice recorder device and software saves all on site voice communication as text. When the AI detects a preset prohibited word or loud voice, it automatically notifies the operation center to prevent problems from escalating in a closed environment.">
+    <meta name="keywords" content="ティ・アイ・エル,レコリス,ボイスレコーダー,コンプライアンス">
+
+    <!-- ICON -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- <link rel="apple-touch-icon-precomposed" href="/webclip.png"> -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Template"> -->
+
+    <!-- OGP -->
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:title" content="AI voice recorder solution 「RECORiS」 | レコリス">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://recoris.jp/en">
+    <meta property="og:image" content="https://recoris.jp/assets/images/common/og.jpg">
+    <meta property="og:site_name" content="RECORiS">
+    <meta property="og:description" content="AI voice recorder solution "RECORiS" is provided by TIL Inc. This proprietary voice recorder device and software saves all on site voice communication as text. When the AI detects a preset prohibited word or loud voice, it automatically notifies the operation center to prevent problems from escalating in a closed environment.">
+
+    <link href="../assets/css/en.css" rel="stylesheet">
+
+</head>
+
+<body id="top" class="fw">
+
+    <header class="o-header">
+
+        <div class="f-inner">
+
+            <div id="staticHeader" class="o-header_static">
+                <div>
+                    <div class="bar">
+                        <h1><a href="/en/"><img src="../assets/images/common/logo.png" alt="RECORiS"></a></h1>
+                        <a href="" class="toggle">
+                            <span class="first"></span>
+                            <span class="second"></span>
+                            <span class="third"></span>
+                        </a>
+                    </div>
+                    <div class="side">
+                        <nav>
+                            <ul>
+                                <li><a class="j-smooth-scroll" href="#about">About RECORIS</a></li>
+                                <li><a class="j-smooth-scroll" href="#feature">Features</a></li>
+                                <li><a class="j-smooth-scroll" href="#caseStudy">Performance</a></li>
+                                <li><a class="j-smooth-scroll" href="#flow">Flow</a></li>
+                                <li><a class="j-smooth-scroll" href="#faq">FAQ</a></li>
+                                <li><a class="j-smooth-scroll" href="#plan">Fee structure</a></li>
+                                <li><a class="j-smooth-scroll" href="#simulation">Fee simulation</a></li>
+                            </ul>
+                        </nav>
+                        <a href="https://admin.recoris.jp/register" target="_blank" class="login">Register as<br>a new member / login</a>
+                        <a href="/en/contact/" class="contact">Contact us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="stickyHeader" class="o-header_sticky"></div>
+
+            <div class="o-header_sticky"></div>
+
+        </div>
+
+    </header>
+    <!-- /header -->
+
+    <div id="container">
+
+        <main id="contents" class="f-max">
+
+            <section id="kv" class="f-section p-kv">
+
+                <div class="f-inner">
+
+                    <div class="p-kv_ttlBox">
+                        <p class="p-kv_lead">Applications that balance business performance with safety</p>
+                        <p class="p-kv_ttl"><img src="../assets/images/common/logo.png" alt="RECORiS"></p>
+                    </div>
+
+                    <div class="p-kv_video_wrapper">
+                        <div id="kvVideo" class="p-kv_video">
+                            <div class="p-kv_video_element" data-src="../assets/video/video_en.mp4">
+                                <video src="../assets/video/video_en.mp4" loop muted playsinline webkit-playsinline></video>
+                            </div>
+                            <button title="Sound On" class="off"><span>Sound</span></button>
+                            <div class="loading">
+                                <div class="lds-css ng-scope">
+                                    <div class="lds-spinner" style="width:100%;height:100%"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- // kv -->
+
+            <section id="meter" class="f-section p-meter">
+
+                <div class="f-inner">
+
+                    <h2 id="meterTitle" class="p-meter_ttl">RECORiS DATA COUNTER</h2>
+
+                    <dl class="p-meter_list">
+                        <dt class="p-meter_list_head">Recording time</dt>
+                        <dd class="p-meter_list_data">
+                            <span id="meterHours" class="p-meter_list_data_num">0</span>
+                            <span class="p-meter_list_data_unit">H</span>
+                            <span id="meterMinutes" class="p-meter_list_data_num">00</span>
+                            <span class="p-meter_list_data_unit">M</span>
+                            <span id="meterSeconds" class="p-meter_list_data_num">00</span>
+                            <span class="p-meter_list_data_unit">S</span>
+                        </dd>
+                    </dl>
+                    <dl class="p-meter_list">
+                        <dt class="p-meter_list_head">Data volume</dt>
+                        <dd class="p-meter_list_data">
+                            <span id="meterMBs" class="p-meter_list_data_num">0.000</span>
+                            <span id="meterUnit" class="p-meter_list_data_unit">GB</span>
+                        </dd>
+                    </dl>
+                    <!-- <dl class="p-meter_list">
+                        <dt class="p-meter_list_head">認識単語数</dt>
+                        <dd class="p-meter_list_data">
+                            <span class="p-meter_list_data_num">12,345</span>
+                            <span class="p-meter_list_data_unit">WORDS</span>
+                        </dd>
+                    </dl>  -->
+
+                </div>
+
+                <div class="p-meter_bgVideo">
+                    <video id="meterVideo" src="../assets/video/meterbg.mp4" autoplay loop muted playsinline webkit-playsinline></video>
+                </div>
+
+            </section>
+            <!-- // meter -->
+
+            <section id="about" class="f-section p-about">
+
+                <div class="f-inner">
+
+                    <div class="p-about_box">
+
+                        <figure class="p-about_box_img">
+                            <!-- RECORiS Image -->
+                            <img src="../assets/images/top/about/illust.jpg" alt="">
+                        </figure>
+
+                        <div class="p-about_box_detail">
+
+                            <h2 class="a-ttl">What is <img class="p-about_logo" src="../assets/images/common/logo.png" alt="RECORiS"></h2>
+
+                            <p class="p-about_emph">TIL's AI Voice Recorder solution provides safety and security for managers, employees and consumers alike.</p>
+
+                            <p class="p-about_txt">We're sure everyone has encountered problems when providing services to people in their homes </p>
+                            <p class="p-about_txt">Mis-communication, accidents, and claims are just some of the things that can go wrong. So Til stores all on-site communication in the cloud using its own special voice recording device and software to convert the audio to text format.</p>
+                            <p class="p-about_txt">When the AI detects an inappropriate phrase, or a loud voice during a visit behind closed doors, it automatically reports the incident to the operations center, preventing issues from spinning out of control.</p>
+                            <p class="p-about_txt">The text can also be searched based on the person in charge, the date and time, location, word used etc. This data can then be used as evidence in response to an accident.</p>
+                            <p class="p-about_txt">By converting the knowledge accumulated by people onsite into a data format, we are able to maximize service performance.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- // about -->
+
+            <section id="scene" class="f-section p-scene">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl">Usage</h2>
+
+                    <ul class="p-scene_list">
+                        <li class="p-scene_list_item">
+                            <figure>
+                                <img src="../assets/images/top/scene/1.jpg" alt="介護施設・訪問介護">
+                            </figure>
+                            <p>Nursing care facilities and visiting care</p>
+                        </li>
+                        <li class="p-scene_list_item">
+                            <figure>
+                                <img src="../assets/images/top/scene/2.jpg" alt="出張買取サービス">
+                            </figure>
+                            <p>Business trip purchase service</p>
+                        </li>
+                        <li class="p-scene_list_item">
+                            <figure>
+                                <img src="../assets/images/top/scene/3.jpg" alt="訪問駆けつけサービス">
+                            </figure>
+                            <p>Visiting services</p>
+                        </li>
+                        <li class="p-scene_list_item">
+                            <figure>
+                                <img src="../assets/images/top/scene/4.jpg" alt="リクルーティング・面談">
+                            </figure>
+                            <p>Recruiting and interviews</p>
+                        </li>
+                        <li class="p-scene_list_item">
+                            <figure>
+                                <img src="../assets/images/top/scene/5.jpg" alt="エステ・マッサージ">
+                            </figure>
+                            <p>Este and massage</p>
+                        </li>
+                        <li class="p-scene_list_item">
+                            <figure>
+                                <img src="../assets/images/top/scene/6.jpg" alt="不動産内覧">
+                            </figure>
+                            <p>Real estate showings</p>
+                        </li>
+                        <li class="p-scene_list_item">
+                            <figure>
+                                <img src="../assets/images/top/scene/7.jpg" alt="保険外交員">
+                            </figure>
+                            <p>Insurance agents</p>
+                        </li>
+                        <li class="p-scene_list_item">
+                            <figure>
+                                <img src="../assets/images/top/scene/8.jpg" alt="病院">
+                            </figure>
+                            <p>Hospitals</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+            <!-- // scene -->
+
+            <section id="feature" class="f-section p-feature">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl">RECORiS features</h2>
+
+                    <section class="p-feature_innerSection">
+
+                        <div class="p-feature_box">
+                            <div class="p-feature_box_item">
+                                <div class="p-feature_ttlBox--1">
+                                    <div>
+                                        <h3 class="p-feature_ttl">A complete suite of service features</h3>
+                                        <p class="p-feature_txt">RECORiS has a number of features, all designed to meet your needs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-feature_box_item">
+                                <ul class="p-feature_list">
+                                    <li class="p-feature_list_item">
+                                        <p>Recording and<br>storage of audio data</p>
+                                        <img src="../assets/images/top/feature/1.svg" alt="">
+                                    </li>
+                                    <li class="p-feature_list_item">
+                                        <p>Turning voice data to text / accumulating said data</p>
+                                        <img src="../assets/images/top/feature/2.svg" alt="">
+                                    </li>
+                                    <li class="p-feature_list_item--row1">
+                                        <p>Search function</p>
+                                        <img src="../assets/images/top/feature/3.svg" alt="">
+                                    </li>
+                                    <li class="p-feature_list_item">
+                                        <p>Registration / aggregation of<br>specific keywords</p>
+                                        <img src="../assets/images/top/feature/4.svg" alt="">
+                                    </li>
+                                    <li class="p-feature_list_item">
+                                        <p>Display data storage time and capacity</p>
+                                        <img src="../assets/images/top/feature/5.svg" alt="">
+                                    </li>
+                                    <li class="p-feature_list_item">
+                                        <p>Account<br>mangaement</p>
+                                        <img src="../assets/images/top/feature/6.svg" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <section>
+                            <h4 class="p-feature_subttl">We will continue to roll out additional features</h4>
+                            <ul class="p-feature_wipList f-flex f-flex_mg20_s">
+                                <li class="p-feature_wipList_item f-flex2 f-flex4_s">
+                                    <p>Configure good keywords</p>
+                                    <img src="../assets/images/top/feature/7.svg" alt="">
+                                </li>
+                                <li class="p-feature_wipList_item f-flex2 f-flex4_s">
+                                    <p>Configure bad keywords</p>
+                                    <img src="../assets/images/top/feature/8.svg" alt="">
+                                </li>
+                                <li class="p-feature_wipList_item f-flex2 f-flex4_s">
+                                    <p>Alerts for specific keywords</p>
+                                    <img src="../assets/images/top/feature/9.svg" alt="">
+                                </li>
+                                <li class="p-feature_wipList_item f-flex2 f-flex4_s">
+                                    <p>Download CSV for specific keywords</p>
+                                    <img src="../assets/images/top/feature/10.svg" alt="">
+                                </li>
+                                <li class="p-feature_wipList_item--row1 f-flex2 f-flex4_s">
+                                    <p>Pause function for recording</p>
+                                    <img src="../assets/images/top/feature/11.svg" alt="">
+                                </li>
+                                <li class="p-feature_wipList_item--row1 f-flex2 f-flex4_s">
+                                    <p>Report/Analysis</p>
+                                    <img src="../assets/images/top/feature/12.svg" alt="">
+                                </li>
+                            </ul>
+                        </section>
+
+                    </section>
+                    <!-- // inner section -->
+
+                    <section class="p-feature_innerSection">
+
+                        <div class="p-feature_box--reverse">
+                            <div class="p-feature_box_item">
+                                <div class="p-feature_ttlBox--2">
+                                    <div>
+                                        <h3 class="p-feature_ttl">Easy to understand admin screeen</h3>
+                                        <p class="p-feature_txt">The RECORiS admin screen displays the current number of users and the number of times keywords have been detected.In addition to checking the monthly charge, audio data can be converted to text and played back.Searches can be conducted by user, date and keyword</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-feature_box_item">
+                                <!-- glide items -->
+                                <div class="glide__slide1__slide">
+                                    <div class="glide__glide__slide1">
+
+                                        <div class="glide__slide1__slide-switch glide__arrows" data-glide-el="controls">
+                                            <a class="__back glide__arrow glide__arrow--left" data-glide-dir="<"><img src="../assets/images/top/feature/nav_left.png" alt=""></a>
+                                            <a class="__next glide__arrow glide__arrow--right" data-glide-dir=">"><img src="../assets/images/top/feature/nav_right.png" alt=""></a>
+                                        </div>
+
+                                        <div class="glide__slide1__slide-track glide__track" data-glide-el="track">
+                                            <ul class="slide glide__slides">
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/admin1.jpg" alt="">
+                                                </li>
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/admin2.jpg" alt="">
+                                                </li>
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/admin3.jpg" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- // inner section -->
+
+                    <section class="p-feature_innerSection">
+
+                        <div class="p-feature_box">
+                            <div class="p-feature_box_item">
+                                <div class="p-feature_ttlBox--3">
+                                    <div>
+                                        <h3 class="p-feature_ttl">Easy to control through our apps</h3>
+                                        <p class="p-feature_txt">RECORiS apps uses speech language recognition technology to extract keywords in places where workers come in direct contact with consumers.The application is designed to maximize safety, as well as business performance.Compatible with iOS and Android.</p>
+                                        <ul class="p-feature_iconList">
+                                            <li class="p-feature_iconList_item"><img src="../assets/images/top/feature/logo_ios.png" alt="iOS"></li>
+                                            <li class="p-feature_iconList_item"><img src="../assets/images/top/feature/logo_android.png" alt="android"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-feature_box_item">
+                                <!-- glide items -->
+                                <div class="glide__slide2__slide">
+                                    <div class="glide__glide__slide2">
+
+                                        <div class="glide__slide2__slide-switch glide__arrows" data-glide-el="controls">
+                                            <a class="__back glide__arrow glide__arrow--left" data-glide-dir="<"><img src="../assets/images/top/feature/nav_left.png" alt=""></a>
+                                            <a class="__next glide__arrow glide__arrow--right" data-glide-dir=">"><img src="../assets/images/top/feature/nav_right.png" alt=""></a>
+                                        </div>
+
+                                        <div class="glide__slide2__slide-track glide__track" data-glide-el="track">
+                                            <ul class="slide glide__slides">
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/screen1.jpg" alt="">
+                                                </li>
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/screen2.jpg" alt="">
+                                                </li>
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/screen3.jpg" alt="">
+                                                </li>
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/screen4.jpg" alt="">
+                                                </li>
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/screen5.jpg" alt="">
+                                                </li>
+                                                <li class="slide__item glide__slide">
+                                                    <img src="../assets/images/top/feature/screen8.jpg" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="__speaker"><img src="../assets/images/top/feature/speaker.png" alt=""></div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- // inner section -->
+
+                </div>
+
+            </section>
+            <!-- // feature -->
+
+            <section id="caseStudy" class="f-section p-caseStudy">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl--center">Our trackrecord</h2>
+
+                    <div class="p-caseStudy_inner">
+
+                        <h3 class="p-caseStudy_ttl">AquaLine Ltd. Listed on  TSE Mothers [Code:6173]</h3>
+                        <dl class="p-caseStudy_detail">
+                            <dt class="p-caseStudy_detail_head">Their services include:</dt>
+                            <dd class="p-caseStudy_detail_data">Emergency waterworks visits</dd>
+                        </dl>
+                        <dl class="p-caseStudy_detail">
+                            <dt class="p-caseStudy_detail_head">Why they chose RECORiS</dt>
+                            <dd class="p-caseStudy_detail_data">RECORiS was introduced to improve services and compliance</dd>
+                        </dl>
+                        <dl class="p-caseStudy_detail">
+                            <dt class="p-caseStudy_detail_head">How it was implemented</dt>
+                            <dd class="p-caseStudy_detail_data">Specific pre-registered keywords are flagged in service staff conversations, which are then notified to the call center.</dd>
+                        </dl>
+
+                        <ul class="p-caseStudy_list f-flex f-flex_mg50 f-flex_mg10_s">
+                            <li class="p-caseStudy_list_item f-flex3 f-flex6_s">
+                                <dl>
+                                    <dt>Obtaining authorization from the customer</dt>
+                                    <dd><img src="../assets/images/top/caseStudy/1.jpg" alt="音声録音許諾"></dd>
+                                    <dd>The customer is always notified of the purpose of the recording, and authorization from them is obtained.</dd>
+                                </dl>
+                            </li>
+                            <li class="p-caseStudy_list_item f-flex3 f-flex6_s">
+                                <dl>
+                                    <dt>Explanation of Services</dt>
+                                    <dd><img src="../assets/images/top/caseStudy/2.jpg" alt="サービス説明"></dd>
+                                    <dd>Staff conversations are sent to the server through the smartphone app</dd>
+                                </dl>
+                            </li>
+                            <li class="p-caseStudy_list_item f-flex3 f-flex6_s">
+                                <dl>
+                                    <dt>During work</dt>
+                                    <dd><img src="../assets/images/top/caseStudy/3.jpg" alt="作業"></dd>
+                                    <dd>If no conversation is detected, such as during a work phase, no data is sent to the server</dd>
+                                </dl>
+                            </li>
+                            <li class="p-caseStudy_list_item f-flex3 f-flex6_s">
+                                <dl>
+                                    <dt>A guide to RECORiS audio recording</dt>
+                                    <dd><img src="../assets/images/top/caseStudy/4.jpg" alt="音声記録案内"></dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+            <!-- // caseStudy -->
+
+            <!-- <section id="interview" class="f-section p-interview">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl">Interview</h2>
+                    <p class="a-subttl">対談</p>
+
+                    <div class="p-interview_txtBox">
+                        <p class="p-interview_txt--large">「意識せずにコンプライアンスを守れる環境の提供が目標です。」</p>
+                        <p class="p-interview_txt">RECORiSを水まわりの緊急訪問修理サービスに導入された株式会社アクアライン取締役管理本部長小林様に、北海道大学大学院情報科学研究科川村教授とティ・アイ・エル株式会社CTOの永田がお伺いしました。</p>
+                        <div class="p-interview_btn">
+                            <a href="">MORE</a>
+                        </div>
+                    </div>
+
+                    <div class="p-interview_intervieweesBox">
+                        <ul class="p-interview_list f-flex f-flex_mg0 f-flex_mg0_s">
+                            <li class="p-interview_list_item f-flex4">
+                                <figure class="p-interview_interviewee">
+                                    <img src="/assets/images/top/interview/kobayashi.jpg" alt="小林　寿之">
+                                    <figcaption class="p-interview_interviewee_txt--1">
+                                            株式会社アクアライン<br>
+                                            取締役　管理本部長<br>
+                                            小林　寿之
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="p-interview_list_item f-flex4">
+                                <figure class="p-interview_interviewee">
+                                    <img src="/assets/images/top/interview/kawamura.jpg" alt="川村　秀憲">
+                                    <figcaption class="p-interview_interviewee_txt--2">
+                                            北海道大学　大学院<br>
+                                            情報科学研究科　教授<br>
+                                            川村　秀憲
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="p-interview_list_item f-flex4">
+                                <figure class="p-interview_interviewee">
+                                    <img src="/assets/images/top/interview/nagata.jpg" alt="永田　紘也">
+                                    <figcaption class="p-interview_interviewee_txt--3">
+                                            ティ・アイ・エル株式会社<br>
+                                            CTO<br>
+                                            永田　紘也
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="p-interview_bg"></div>
+
+            </section> -->
+            <!-- // interview -->
+
+            <section id="flow" class="f-section p-flow">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl--center">The flow</h2>
+
+                    <ol class="p-flow_list f-flex f-flex_mg0 f-flex_mg0_s">
+                        <li class="p-flow_list_item f-flex_fifth f-flex12_s">
+                            <dl class="p-flow_step">
+                                <dt class="p-flow_step_head">STEP1</dt>
+                                <dd class="p-flow_step_data">
+                                    <div class="p-flow_step_icon"><img src="../assets/images/top/flow/1.svg" alt=""></div>
+                                    <h3 class="p-flow_step_ttl">Fee simulation</h3>
+                                    <p class="p-flow_step_txt">Enter each number in the "Fee Simulation" at the bottom of this site, confirm the monthly fee, and click the "Member registration" button</p>
+                                    <div class="p-flow_step_btn">
+                                        <a href="#simulation" class="j-smooth-scroll">See here for a fee simluation</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="p-flow_list_item f-flex_fifth f-flex12_s">
+                            <dl class="p-flow_step">
+                                <dt class="p-flow_step_head">STEP2</dt>
+                                <dd class="p-flow_step_data">
+                                    <div class="p-flow_step_icon"><img src="../assets/images/top/flow/2.svg" alt=""></div>
+                                    <h3 class="p-flow_step_ttl">Member registration</h3>
+                                    <p class="p-flow_step_txt">Enter your membership information and click the "Submit" button<br>When you receive "Member Registration Confirmation Email", click on the URL in the email, enter your ID and password, and log in</p>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="p-flow_list_item f-flex_fifth f-flex12_s">
+                            <dl class="p-flow_step">
+                                <dt class="p-flow_step_head">STEP3</dt>
+                                <dd class="p-flow_step_data">
+                                    <div class="p-flow_step_icon"><img src="../assets/images/top/flow/3.svg" alt=""></div>
+                                    <h3 class="p-flow_step_ttl">Sign up</h3>
+                                    <p class="p-flow_step_txt">Click the "Order" button and enter the number of people on the "Order Page"<br>A confirmation email will be sent to your email address</p>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="p-flow_list_item f-flex_fifth f-flex12_s">
+                            <dl class="p-flow_step">
+                                <dt class="p-flow_step_head">STEP4</dt>
+                                <dd class="p-flow_step_data">
+                                    <div class="p-flow_step_icon"><img src="../assets/images/top/flow/4.svg" alt=""></div>
+                                    <h3 class="p-flow_step_ttl">User registration</h3>
+                                    <p class="p-flow_step_txt">Please register as a user in the "User Management" screen.A confirmation email will be sent</p>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="p-flow_list_item f-flex_fifth f-flex12_s">
+                            <dl class="p-flow_step">
+                                <dt class="p-flow_step_head">STEP5</dt>
+                                <dd class="p-flow_step_data">
+                                    <div class="p-flow_step_icon"><img src="../assets/images/top/flow/5.svg" alt=""></div>
+                                    <h3 class="p-flow_step_ttl--narrow">Download our app</h3>
+                                    <p class="p-flow_step_txt">Users can download the dedicated smartphone app by clicking on the app store and Google Play Store icons in the email</p>
+                                </dd>
+                            </dl>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+            <!-- // flow -->
+
+            <section id="faq" class="f-section p-faq">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl--center">Frequently Asked Questions</h2>
+
+                    <ul class="p-faq_list">
+                        <li class="p-faq_list_item">
+                            <dl class="p-faq_box j-accordion">
+                                <dt class="p-faq_box_q"><a class="j-accordion_btn" href="">Are payment methods other than credit card accepted?</a></dt>
+                                <dd class="p-faq_box_a j-accordion_detail">
+                                    <div class="">
+                                        <p>Currently we only accept credit card.If you wish to make payments through other means, please use the "<a href="/contact/" target="_blank">Contact us</a>" form</p>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="p-faq_list_item">
+                            <dl class="p-faq_box j-accordion2">
+                                <dt class="p-faq_box_q"><a class="j-accordion2_btn" href="">I haven't received my order confirmation email.</a></dt>
+                                <dd class="p-faq_box_a j-accordion2_detail">
+                                    <div class="">
+                                        <p>If you have set up a designated reception by domain or email address, please set the "@" domain setting to receive emails from us.</p>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="p-faq_list_item">
+                            <dl class="p-faq_box j-accordion3">
+                                <dt class="p-faq_box_q"><a class="j-accordion3_btn" href="">I forgot my registered address and password</a></dt>
+                                <dd class="p-faq_box_a j-accordion3_detail">
+                                    <div class="">
+                                        <p>If you have forgotten your password, please log in and re-enter your password on the member information screen.If you have forgotten your email address, please contact us using the "<a href="/contact/" target="_blank">Contact us</a>" form</p>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+            <!-- // faq -->
+
+            <section id="plan" class="f-section p-plan">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl--center">Fee structure</h2>
+
+                    <p class="p-plan_txt">Rates for RECORiS are based on "voice recorder usage time" and "storage capacity of voice data"</p>
+
+                    <div class="p-plan_table">
+                        <table>
+                            <tbody class="first">
+                                <tr>
+                                    <th>
+                                        Device<br> (Voice Recorder)
+                                    </th>
+                                    <td>
+                                        <strong>Free</strong>
+                                    </td>
+                                    <td colspan="4"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <tbody class="second">
+                                <tr>
+                                    <th>Time charge</th>
+                                    <td>~100 hours/month</td>
+                                    <td>~200 hours/month<br>¥400 per hour</td>
+                                    <td>1,000 hours/month<br>¥380 per hour</td>
+                                    <td>2,500 hours/month<br>¥360 per hour</td>
+                                    <td>5,000 hours/month<br>¥350 per hour</td>
+                                </tr>
+                                <tr>
+                                    <th>Hourly billing (b)</th>
+                                    <td>¥50,000</td>
+                                    <td>¥80,000</td>
+                                    <td>¥380,000</td>
+                                    <td>¥900,000</td>
+                                    <td>¥1,750,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <tbody class="third">
+                                <tr>
+                                    <th>Usage capacity</th>
+                                    <td>~10GB</td>
+                                    <td>100GB</td>
+                                    <td>1TB</td>
+                                    <td>2TB</td>
+                                    <td>3TB</td>
+                                </tr>
+                                <tr>
+                                    <th>Data fee(c)</th>
+                                    <td>¥10,000</td>
+                                    <td>¥80,000</td>
+                                    <td>¥200,000</td>
+                                    <td>¥300,000</td>
+                                    <td>¥360,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="p-plan_table_note">*The minimum fee is 60,000 yen/month.*The charge is by the hour (minute-by-minute round-up) *The rate is subject to change in the future</p>
+                    </div>
+
+                    <section>
+                        <div class="p-plan_example">
+                            <h3 class="p-plan_example_ttl">Example fee</h3>
+                            <section>
+                                <h4 class="p-plan_example_txt">＜10 people＞</h4>
+                                <ul class="p-plan_example_list">
+                                    <li class="p-plan_example_list_item">Assume three times a day for one person and one hour of customer service</li>
+                                    <li class="p-plan_example_list_item">Recording 20 minutes of voice per day, per hour (audio data + text)</li>
+                                    <li class="p-plan_example_list_item">Data usage is assumed to be 15MB per hour</li>
+                                </ul>
+                                <p class="p-plan_example_txt">
+                                    Time per person per month: 1 hour per day (20 minutes x 3 times) × 20 hours running = 20 hours<br>
+                                    Data used per person per month: 1 hour per day (20 minutes x 3 times) × 15MB x 20 days running = 300MB
+                                </p>
+                                <p class="p-plan_example_txt">
+                                    10 hours per month: 20 hours x 10 people = 200 hours<br>
+                                    Data used per month for 10 people: 300MB x 10 people = 3GB
+                                </p>
+                                <figure class="p-plan_example_figure">
+                                    <div class="p-plan_example_figure_box">
+                                        <div>200 hours</div><div>Time charge total: ¥80,000</div>
+                                    </div>
+                                    <div>+</div>
+                                    <div class="p-plan_example_figure_box">
+                                        <div>3GB</div><div>Data charge total：￥10,0000<sup>*</sup></div>
+                                    </div>
+                                    <div>=</div>
+                                    <div class="p-plan_example_figure_box">
+                                        <div>Total:</div><div>￥90,000</div>
+                                    </div>
+                                </figure>
+                                <p class="p-plan_example_note"><sup>*</sup>￥10,000 up to 10GB</p>
+                            </section>
+                        </div>
+                    </section>
+
+                </div>
+
+            </section>
+            <!-- // plan -->
+
+            <section id="simulation" class="f-section p-simulation">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl--center">Fee Simluation</h2>
+
+                    <form id="simulationForm">
+                        <div class="p-simulation_inputBox">
+                            <ul class="p-simulation_list">
+                                <li class="p-simulation_list_item">
+                                    <label for="people" class="p-simulation_label">How many people will use RECORiS?</label>
+                                    <div class="p-simulation_input">
+                                        <input id="people" name="people" type="number" min="0" inputmode="numeric" pattern="[0-9]*" />
+                                        People
+                                    </div>
+                                </li>
+                                <li class="p-simulation_list_item">
+                                    <label for="days" class="p-simulation_label">Enter the average number of work days per month that people would use RECORiS</label>
+                                    <div class="p-simulation_input">
+                                        <input id="days" name="days" type="number" min="0" inputmode="numeric" pattern="[0-9]*" />
+                                        Days
+                                    </div>
+                                </li>
+                                <li class="p-simulation_list_item">
+                                    <label for="hours" class="p-simulation_label">Enter how many hours RECORiS would be used out of the day<br>Example) 3 visits a day, 1 hour per visit, 20 minutes per hour recording = 1 hour</label>
+                                    <div class="p-simulation_input">
+                                        <input id="hours" name="hours" type="number" min="0" inputmode="numeric" pattern="[0-9]*" />
+                                        Hours
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+                    <p class="p-simulation_txt">"Time charge", "Data charge", "Monthly charge" are automatically calculated and displayed.</p>
+                    <div class="p-simulation_resultsList">
+                        <div class="p-simulation_resultsList_item--withResult">
+                            <dl>
+                                <dt>Time charge</dt>
+                                <dd>
+                                    <div id="pricePerHour" class="p-simulation_resultBox">0</div>
+                                </dd>
+                                <dd><span id="totalHour"></span>Hours</dd>
+                            </dl>
+                        </div>
+                        <div class="p-simulation_resultsList_item">+</div>
+                        <div class="p-simulation_resultsList_item--withResult">
+                            <dl>
+                                <dt>Data charge</dt>
+                                <dd>
+                                    <div id="pricePerGB" class="p-simulation_resultBox">0</div>
+                                </dd>
+                                <dd><span id="totalGB"></span>GB</dd>
+                            </dl>
+                        </div>
+                        <div class="p-simulation_resultsList_item">=</div>
+                        <div class="p-simulation_resultsList_item--withResult">
+                            <dl>
+                                <dt>Monthly charge (total)</dt>
+                                <dd>
+                                    <div id="totalPrice" class="p-simulation_resultBox">0</div>
+                                </dd>
+                                <dd>&nbsp;</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- // simulation -->
+
+            <div id="registration" class="f-section p-registration">
+
+                <div class="f-inner">
+
+                    <div class="p-registration_btn">
+                        <a href="https://admin.recoris.jp/register" target="_blank">Click here to register as a member</a>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- // registration -->
+
+            <!-- <section id="download" class="f-section p-download">
+
+                <div class="f-inner">
+
+                    <h2 class="a-ttl--center">Download</h2>
+                    <p class="a-subttl--center">専用スマホアプリダウンロード</p>
+
+                    <p class="p-download_txt">専用スマホアプリにつきましてはApp StoreおよびGoogle Play Storeのアイコンをクリックしてダウンロードしてください。</p>
+
+                    <div class="p-download_links">
+
+                        <div class="p-download_links_stores">
+                            <a href=""><img src="/assets/images/top/download/appstore.png" alt="App Storeからダウンロード"></a>
+                            <a href=""><img src="/assets/images/top/download/googleplay.png" alt="Google Playで手に入れよう"></a>
+                        </div>
+
+                        <div class="p-download_links_contact">
+                            <a href="">お問い合わせはこちら</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="p-download_bg">
+                    <img src="/assets/images/top/download/bg.png" alt="">
+                </div>
+
+            </section> -->
+            <!-- // donwload -->
+
+        </main>
+        <!-- /#contents -->
+
+    </div>
+    <!-- /#container -->
+
+    <footer class="o-footer">
+
+        <div class="f-inner">
+
+            <ul class="o-footer_list">
+                <li class="o-footer_list_item">
+                    <a href="https://tilab.jp/en" target="_blank">Operating company</a>
+                </li>
+                <li class="o-footer_list_item">
+                    <a href="/en/privacy/">Privacy Policy</a>
+                </li>
+                <li class="o-footer_list_item">
+                    <a href="/en/legal/">Relevant sections of Japan's commercial transaction law</a>
+                </li>
+            </ul>
+
+            <p class="o-footer_copyright">Copyright(C) TIL Inc. All Rights Reserved.</p>
+
+        </div>
+
+    </footer>
+    <!-- /footer -->
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+    <script src="../assets/js/snap.svg-min.js"></script>
+    <script src="../assets/js/main.js?v=2019072102"></script>
+
+</body>
+
+</html>

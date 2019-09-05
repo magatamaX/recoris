@@ -91,6 +91,7 @@
 						border-radius: 5px;
 						box-shadow: 4px 4px 4px rgba(#555, .5);
 						transition: opacity .3s ease-out;
+						line-height: 1.2;
 
 						&:hover {
 							opacity: .8;
@@ -337,6 +338,7 @@
 					@include top(0);
 					@include right(200px);
 					transition: opacity .3s ease-out;
+					line-height: 1.4;
 
 					&:hover {
 						opacity: .8;

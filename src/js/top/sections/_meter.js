@@ -159,7 +159,7 @@ function TimeCountUp( second, speed, hourElm, minElm, secElm, easingType = "ease
         if( STATUS >= speed ) {
 
             cancelAnimationFrame( render );
-            hourElm.innerText = (`${"000"}${String(SecToHour(num)['hour'])}`).slice(-4);
+            hourElm.innerText = (`${"0000"}${String(SecToHour(num)['hour'])}`).slice(-5);
             minElm.innerText = (`${"00"}${String(SecToHour(num)['min'])}`).slice(-2);
             secElm.innerText = (`${"00"}${String(SecToHour(num)['sec'])}`).slice(-2);
         }
@@ -258,7 +258,7 @@ const Meter = () => {
             Fetch(url)
                 .then(({ duration, size }) => {
                     const { unit, divisorNum, fixNum } = Align(size);
-                    HOUR.innerText = (`${"000"}${String(SecToHour(duration)['hour'])}`).slice(-4);
+                    HOUR.innerText = (`${"0000"}${String(SecToHour(duration)['hour'])}`).slice(-5);
                     MINUTE.innerText = (`${"00"}${String(SecToHour(duration)['min'])}`).slice(-2);
                     SECOND.innerText = (`${"00"}${String(SecToHour(duration)['sec'])}`).slice(-2);
                     MB.innerText = ( size / divisorNum ).toFixed(fixNum);

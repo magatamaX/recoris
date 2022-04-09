@@ -34,7 +34,7 @@
     "mgn-smooth-scroll": "^0.0.0",
     "mgn-ua": "^0.0.0",
     "mgn-utility": "^0.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "snapsvg": "^0.5.1"
   }
 }
